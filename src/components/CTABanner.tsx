@@ -19,7 +19,7 @@ export default function CTABanner() {
             </Button>
           </a>
           <Link to="/contact">
-            <Button variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+            <Button variant="secondary" size="lg" className="gap-2">
               Request a Free Quote
             </Button>
           </Link>
