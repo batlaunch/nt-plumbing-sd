@@ -42,7 +42,7 @@ export default function HomePage() {
               <Button size="lg" className="gap-2 text-base">Request Service</Button>
             </Link>
             <a href="tel:+16195555555">
-              <Button size="lg" variant="outline" className="gap-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-base">
+              <Button size="lg" variant="outline" className="gap-2 border-primary-foreground/50 bg-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/30 text-base">
                 <Phone className="h-4 w-4" /> Call Now
               </Button>
             </a>
