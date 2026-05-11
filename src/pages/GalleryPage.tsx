@@ -11,7 +11,7 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
             <h1 className="mb-2 text-4xl font-bold">Photo Gallery</h1>
-            <p className="text-muted-foreground">All 44 photos from NTP's Yelp listing — no stock photos</p>
+            <p className="text-muted-foreground">Photos from NTP's Yelp listing — no stock photos</p>
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
