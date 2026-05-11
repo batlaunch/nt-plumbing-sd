@@ -62,7 +62,7 @@ export default function ContactPage() {
             <div className="mt-6 overflow-hidden rounded-xl border">
               <iframe
                 title="NTP Service Area - San Diego County, CA"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353903.795243922!2d-118.000000!3d33.0934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dbec0a5e876c17%3A0x62748f1c64c7573a!2sSan%20Diego%20County%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107085.12310742869!2d-117.01564105!3d32.79485105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9536fad2923db%3A0x73a1fca09ea19acf!2sSan%20Diego%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                 width="100%"
                 height="250"
                 style={{ border: 0 }}
