@@ -30,8 +30,7 @@ const photoIds = [
   "imNj-qBKBpnFYrf9EuOlQA",
   "EIYaulp2iUlTf-ZjwWOLdQ",
   "aWVkxexXW57x0b-pdaVuNg",
-  
-  "gqQtbFSd27hTI_0tW5JgiQ",
+  "JT7v2AtfcuGlnsEXB_Rn7A",
   "i_1oI3RgSduKLvaeiPcwTQ",
   "4jGW4yt3a00jN11u6r0Gag",
   "RMlsqP7ebWKZIKiqgFLqhQ",
