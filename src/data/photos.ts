@@ -1,4 +1,4 @@
-// All 44 photos from NTP's Yelp listing - NO stock photos used
+// Photos of previous plumbing work by NTP
 const photoIds = [
   "xotUmIw4oPCgxALWxykLaQ",
   "4dR7TDBrMzHypMEX7B962g",

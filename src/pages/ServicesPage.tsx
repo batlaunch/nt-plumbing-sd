@@ -29,7 +29,7 @@ export default function ServicesPage() {
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 text-center">
           <h1 className="text-4xl font-bold text-primary-foreground md:text-5xl">Our Services</h1>
-          <p className="mt-2 text-primary-foreground/70">Verified services from NTP's Yelp listing</p>
+          <p className="mt-2 text-primary-foreground/70">Trusted plumbing services we provide</p>
         </div>
       </section>
 
