@@ -53,7 +53,7 @@ export default function ContactPage() {
                 <CreditCard className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div>
                   <p className="font-medium">Payment</p>
-                  <p className="text-sm text-muted-foreground">Accepts credit cards &amp; cryptocurrency</p>
+                  <p className="text-sm text-muted-foreground">Cash, Check, Credit Cards, Zelle</p>
                 </div>
               </div>
             </div>
