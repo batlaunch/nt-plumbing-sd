@@ -7,15 +7,15 @@ export default function CTABanner() {
     <section className="cta-gradient section-padding text-center">
       <div className="mx-auto max-w-2xl">
         <h2 className="mb-3 text-3xl font-bold text-primary-foreground md:text-4xl">
-          Need a Plumber? Call Now!
+          Need a Plumber? Call (619) 550-7371
         </h2>
         <p className="mb-6 text-primary-foreground/80">
           Available 24/7 for emergency and scheduled plumbing services throughout El Cajon and San Diego County.
         </p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="tel:+16195555555">
+          <a href="tel:+16195507371">
             <Button variant="secondary" size="lg" className="gap-2">
-              <Phone className="h-4 w-4" /> Call for Immediate Service
+              <Phone className="h-4 w-4" /> Call (619) 550-7371
             </Button>
           </a>
           <Link to="/contact">

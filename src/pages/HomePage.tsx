@@ -37,9 +37,9 @@ export default function HomePage() {
           <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
             Professional drain cleaning, water heater service, hydro jetting, leak detection, and more. Open 24 hours — serving the greater San Diego area.
           </p>
-          <a href="tel:+16195555555">
+          <a href="tel:+16195507371">
             <Button size="lg" className="gap-2 text-base shadow-lg">
-              <Phone className="h-5 w-5" /> Call Now
+              <Phone className="h-5 w-5" /> Call (619) 550-7371
             </Button>
           </a>
         </div>
