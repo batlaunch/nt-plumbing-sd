@@ -42,9 +42,9 @@ export default function Footer() {
                 <Clock className="h-4 w-4 shrink-0" />
                 <span>Open 24 Hours — 7 Days a Week</span>
               </div>
-              <a href="tel:+16195555555" className="flex items-center gap-2 hover:opacity-100">
+              <a href="tel:+16195507371" className="flex items-center gap-2 hover:opacity-100">
                 <Phone className="h-4 w-4 shrink-0" />
-                <span>[PHONE – EDIT THIS]</span>
+                <span>(619) 550-7371</span>
               </a>
             </div>
           </div>
