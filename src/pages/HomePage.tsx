@@ -32,7 +32,7 @@ export default function HomePage() {
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
-            Reliable Plumbing Services in El Cajon, CA
+            Reliable Plumbing Services in Greater San Diego Area
           </h1>
           <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
             Professional drain cleaning, water heater service, hydro jetting, leak detection, and more. Open 24 hours — serving the greater San Diego area.
