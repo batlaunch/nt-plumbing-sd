@@ -22,8 +22,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-4 text-2xl font-bold">About the Business</h2>
           <p className="mb-4 leading-relaxed text-muted-foreground">
-            NTP is a professional plumbing company serving El Cajon and the greater San Diego County area. 
-            Owned and operated by Nick T., NTP specializes in a wide range of plumbing services including:
+            NTP is a professional plumbing company serving El Cajon and the greater San Diego County area.
+            With 20+ years of experience, owner-operator Nick T. specializes in a wide range of plumbing services including:
           </p>
           <ul className="mb-6 list-inside list-disc space-y-1 text-muted-foreground">
             <li>Drain cleaning, service, and repair</li>
