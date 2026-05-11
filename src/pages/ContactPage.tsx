@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div>
                   <p className="font-medium">Service Area</p>
-                  <p className="text-sm text-muted-foreground">Serving El Cajon, CA &amp; San Diego County</p>
+                  <p className="text-sm text-muted-foreground">Serving El Cajon, La Mesa, Spring Valley, National City, and San Diego Counties</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -61,8 +61,8 @@ export default function ContactPage() {
             {/* Map */}
             <div className="mt-6 overflow-hidden rounded-xl border">
               <iframe
-                title="NTP Service Area - El Cajon, CA"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107085.12310742869!2d-117.01564105!3d32.79485105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d95f3cbba38781%3A0x39d1408f7dd10b7!2sEl%20Cajon%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                title="NTP Service Area - San Diego County, CA"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353903.795243922!2d-118.000000!3d33.0934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dbec0a5e876c17%3A0x62748f1c64c7573a!2sSan%20Diego%20County%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                 width="100%"
                 height="250"
                 style={{ border: 0 }}

@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 text-sm opacity-80">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 shrink-0" />
-                <span>Serving El Cajon, CA &amp; San Diego County</span>
+                <span>Serving El Cajon, La Mesa, Spring Valley, National City, and San Diego Counties</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 shrink-0" />
