@@ -57,8 +57,8 @@ export default function ServicesPage() {
               { q: "Do you offer emergency plumbing services?", a: "Yes! NTP is open 24 hours a day, 7 days a week. We're available for emergency plumbing calls at any time." },
               { q: "What areas do you serve?", a: "We serve El Cajon and the greater San Diego County area." },
               { q: "What payment methods do you accept?", a: "We accept credit cards and cryptocurrency for your convenience." },
-              { q: "Do you provide free estimates?", a: "[EXAMPLE – EDIT THIS] Contact us for a free estimate on your plumbing project." },
-              { q: "Are you licensed and insured?", a: "[EXAMPLE – EDIT THIS] Please contact NTP directly to confirm licensing and insurance details." },
+              { q: "Do you provide free estimates?", a: "Contact us for a free estimate on your plumbing project." },
+              { q: "Are you licensed and insured?", a: "Yes — NTP is fully licensed and insured." },
             ].map((faq) => (
               <div key={faq.q} className="rounded-lg border bg-card p-5">
                 <h3 className="mb-2 font-semibold">{faq.q}</h3>
