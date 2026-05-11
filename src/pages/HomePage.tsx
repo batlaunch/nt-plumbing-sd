@@ -62,7 +62,7 @@ export default function HomePage() {
           </div>
           <div className="flex items-center gap-2">
             <Wrench className="h-5 w-5 text-primary" />
-            <span className="text-sm font-semibold">[EXAMPLE – 10+ Years Experience]</span>
+            <span className="text-sm font-semibold">20+ Years Experience</span>
           </div>
         </div>
       </section>
