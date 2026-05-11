@@ -11,6 +11,7 @@ const services = [
   { icon: PipetteIcon, title: "Hydro Jetting", desc: "High-pressure water jetting to clear tough clogs, grease, and tree root intrusions." },
   { icon: Zap, title: "Backflow Testing", desc: "Certified backflow prevention testing and device installation to protect water supply." },
   { icon: Eye, title: "Camera & Locate", desc: "Sewer camera inspection and line locating to diagnose problems without digging." },
+  { icon: CircleDot, title: "Sewer Liners", desc: "Trenchless sewer liner installation to restore damaged pipes without excavation." },
   { icon: Search, title: "Leak Detection", desc: "Advanced leak detection technology to pinpoint hidden leaks in walls, floors, and underground." },
   { icon: PipetteIcon, title: "Sewer Liner Repair", desc: "Trenchless sewer liner solutions — both full liners and sectional liners for minimal disruption." },
   { icon: Plug, title: "Drain Cleaning", desc: "Complete drain cleaning services using professional-grade equipment." },
