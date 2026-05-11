@@ -7,6 +7,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-3xl">
         <div className="mb-10 text-center">
           <h1 className="mb-2 text-4xl font-bold">Contact NTP</h1>
+          <p className="mb-2 text-lg font-medium text-foreground">Get in touch for a free quote</p>
           <p className="mb-6 text-muted-foreground">Call us anytime — available 24/7 for emergency and scheduled service</p>
           <a href="tel:+16195507371">
             <Button size="lg" className="gap-2 text-base shadow-lg">
