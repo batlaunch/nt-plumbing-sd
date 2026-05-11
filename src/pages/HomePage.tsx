@@ -37,16 +37,11 @@ export default function HomePage() {
           <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
             Professional drain cleaning, water heater service, hydro jetting, leak detection, and more. Open 24 hours — serving the greater San Diego area.
           </p>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/contact">
-              <Button size="lg" className="gap-2 text-base">Request Service</Button>
-            </Link>
-            <a href="tel:+16195555555">
-              <Button size="lg" variant="outline" className="gap-2 border-primary-foreground/50 bg-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/30 text-base">
-                <Phone className="h-4 w-4" /> Call Now
-              </Button>
-            </a>
-          </div>
+          <a href="tel:+16195555555">
+            <Button size="lg" className="gap-2 text-base shadow-lg">
+              <Phone className="h-5 w-5" /> Call Now
+            </Button>
+          </a>
         </div>
       </section>
 
