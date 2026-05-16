@@ -65,6 +65,22 @@ const services = [
 ];
 
 export default function HomePage() {
+  const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: "", phone: "", message: "" });
+    }, 3000);
+  };
+
   return (
     <>
       {/* Emergency Banner */}
