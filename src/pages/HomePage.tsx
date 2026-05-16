@@ -9,6 +9,7 @@ import afterCleaning from "@/assets/after-cleaning.jpeg";
 const cityRegions = [
   {
     name: "San Diego Core",
+    anchor: "san-diego-core",
     cities: [
       "Balboa Park Area", "Barrio Logan", "Chula Vista", "City Heights", "Clairemont Mesa",
       "College Area", "Downtown San Diego", "East San Diego", "El Cajon", "Encanto",
@@ -22,6 +23,7 @@ const cityRegions = [
   },
   {
     name: "North County San Diego",
+    anchor: "north-county",
     cities: [
       "Bonsall", "Borrego Springs", "Camp Pendleton Area", "Carlsbad", "Del Mar",
       "Encinitas", "Escondido", "Fallbrook", "Leucadia", "Oceanside", "Poway",
@@ -30,6 +32,7 @@ const cityRegions = [
   },
   {
     name: "South Bay / East County",
+    anchor: "south-bay-east-county",
     cities: [
       "Alpine", "Bonita", "Casa de Oro", "El Cajon", "Flinn Springs", "Jamul",
       "Lakeside", "Mount Helix", "Pine Valley", "Potrero", "Rancho San Diego",
@@ -38,6 +41,7 @@ const cityRegions = [
   },
   {
     name: "Inland / Temecula Valley",
+    anchor: "inland-empire-temecula",
     cities: [
       "Hemet", "Lake Elsinore", "Menifee", "Moreno Valley", "Murrieta",
       "Perris", "San Jacinto", "Sun City", "Temecula", "Wildomar", "Winchester",
@@ -45,6 +49,7 @@ const cityRegions = [
   },
   {
     name: "Orange County (South)",
+    anchor: "south-orange-county",
     cities: [
       "Dana Point", "Laguna Beach", "Laguna Hills", "Laguna Niguel", "Mission Viejo",
       "San Clemente", "San Juan Capistrano",
@@ -254,7 +259,7 @@ export default function HomePage() {
                 {region.cities.map((city) => (
                   <Link
                     key={city}
-                    to="/service-area"
+                    to={`/service-area#${region.anchor}`}
                     className="rounded-full bg-[#e8f0f8] px-4 py-1.5 text-sm font-medium text-[#1a3a5c] transition-colors hover:bg-[#e8a020] hover:text-white"
                   >
                     {city}

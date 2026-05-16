@@ -1,8 +1,16 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Star, Shield, MapPin, Wrench } from "lucide-react";
+
+const REGION_ANCHORS: Record<string, string> = {
+  "San Diego Core": "san-diego-core",
+  "North County San Diego": "north-county",
+  "South Bay & East County": "south-bay-east-county",
+  "Inland Empire / Temecula Valley": "inland-empire-temecula",
+  "South Orange County": "south-orange-county",
+};
 
 const GOOGLE_MAPS_API_KEY = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined) ?? "";
 
@@ -258,6 +266,18 @@ const jsonLd = {
 };
 
 export default function ServiceAreaPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <Helmet>
@@ -300,12 +320,23 @@ export default function ServiceAreaPage() {
         </div>
       </section>
 
+      {/* Service Area Map */}
+      <section className="bg-white px-4 pb-16">
+        <div className="mx-auto max-w-5xl">
+          <div className="overflow-hidden rounded-lg border border-[#1a3a5c]/30 shadow-sm" style={{ height: 400 }}>
+            <ServiceAreaMap />
+          </div>
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            Approximate 80-mile service radius from San Diego, clipped at the US/Mexico border.
+          </p>
+        </div>
+      </section>
 
       {/* Regions */}
       <section className="bg-[#f4f6f8] px-4 py-16">
         <div className="mx-auto max-w-6xl space-y-14">
           {regions.map((region) => (
-            <div key={region.name}>
+            <div key={region.name} id={REGION_ANCHORS[region.name]} className="scroll-mt-24">
               <h2 className="mb-3 text-2xl font-bold text-[#1a3a5c] md:text-3xl">{region.name}</h2>
               <p className="mb-6 max-w-3xl text-[#2d2d2d]">{region.description}</p>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -360,6 +391,16 @@ export default function ServiceAreaPage() {
           </div>
         </div>
       </section>
+
+      {/* Mobile sticky call bar */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#e8a020]/40 bg-[#1a3a5c] px-4 py-3 shadow-lg md:hidden">
+        <a
+          href="tel:+16195507371"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-[#e8a020] px-4 py-3 text-base font-bold text-white"
+        >
+          <Phone className="h-5 w-5" /> Call (619) 550-7371
+        </a>
+      </div>
     </>
   );
 }
