@@ -227,66 +227,29 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column — Form */}
-            <div className="rounded-xl bg-white p-6 shadow-lg md:p-8">
-              {submitted ? (
-                <div className="flex h-full flex-col items-center justify-center py-10 text-center">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
-                    <Send className="h-6 w-6" />
-                  </div>
-                  <h3 className="mb-1 text-xl font-semibold text-[#1a3a5c]">Request Received!</h3>
-                  <p className="text-sm text-muted-foreground">We'll call you back shortly.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="mb-1 block text-sm font-medium text-[#1a3a5c]">Full Name</label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="border-gray-200 focus:border-[#1a3a5c] focus:ring-[#1a3a5c]"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="mb-1 block text-sm font-medium text-[#1a3a5c]">Phone Number</label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="Your Phone Number"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="border-gray-200 focus:border-[#1a3a5c] focus:ring-[#1a3a5c]"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="mb-1 block text-sm font-medium text-[#1a3a5c]">Message</label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Describe the issue..."
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      className="border-gray-200 focus:border-[#1a3a5c] focus:ring-[#1a3a5c]"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full gap-2 bg-[#e8a020] text-white hover:bg-[#e8a020]/90"
-                    size="lg"
-                  >
-                    <Send className="h-4 w-4" /> Request a Callback
-                  </Button>
-                </form>
-              )}
+            {/* Right Column */}
+            <div className="flex flex-col justify-center gap-6 text-white">
+              <div className="rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm md:p-8">
+                <h3 className="mb-4 text-xl font-semibold">Why Call NTP Plumbing?</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <Clock className="mt-0.5 h-5 w-5 shrink-0 text-[#e8a020]" />
+                    <span>24/7 emergency service — nights, weekends & holidays</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Shield className="mt-0.5 h-5 w-5 shrink-0 text-[#e8a020]" />
+                    <span>Fully licensed, bonded, and insured for your protection</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Wrench className="mt-0.5 h-5 w-5 shrink-0 text-[#e8a020]" />
+                    <span>20+ years of hands-on plumbing experience</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="mt-0.5 h-5 w-5 shrink-0 text-[#e8a020]" />
+                    <span>5-star rated on Yelp with hundreds of happy customers</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
