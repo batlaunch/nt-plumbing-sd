@@ -10,6 +10,7 @@ import ServicesPage from "@/pages/ServicesPage";
 import GalleryPage from "@/pages/GalleryPage";
 import ReviewsPage from "@/pages/ReviewsPage";
 import ContactPage from "@/pages/ContactPage";
+import ServiceAreaPage from "@/pages/ServiceAreaPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/service-area" element={<ServiceAreaPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
