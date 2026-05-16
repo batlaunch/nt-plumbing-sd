@@ -10,7 +10,6 @@ const navLinks = [
   { to: "/gallery", label: "Gallery" },
   { to: "/reviews", label: "Reviews" },
   { to: "/service-area", label: "Service Area" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
