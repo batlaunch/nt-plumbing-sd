@@ -185,6 +185,48 @@ export default function HomePage() {
 
       {/* CTA */}
       <CTABanner />
+
+      {/* Cities We Serve */}
+      <section className="section-padding bg-[#f4f6f8]">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-2 flex items-center justify-center gap-2">
+            <MapPin className="h-6 w-6 text-[#1a3a5c]" />
+            <h2 className="text-center text-3xl font-bold text-[#1a3a5c]">Cities We Serve Across Southern California</h2>
+          </div>
+          <p className="mx-auto mb-10 max-w-3xl text-center text-muted-foreground">
+            NTP Plumbing provides 24/7 plumbing services to homeowners and businesses throughout Greater San Diego and surrounding Southern California communities. If you don't see your city listed, call us — we likely serve your area.
+          </p>
+
+          {cityRegions.map((region) => (
+            <div key={region.name} className="mb-8">
+              <h3 className="mb-3 text-lg font-semibold text-[#1a3a5c]">{region.name}</h3>
+              <div className="flex flex-wrap gap-2">
+                {region.cities.map((city) => (
+                  <Link
+                    key={city}
+                    to="/service-area"
+                    className="rounded-full bg-[#e8f0f8] px-4 py-1.5 text-sm font-medium text-[#1a3a5c] transition-colors hover:bg-[#e8a020] hover:text-white"
+                  >
+                    {city}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Callout bar */}
+          <div className="mt-10 rounded-xl bg-[#1a3a5c] px-6 py-8 text-center">
+            <p className="mb-4 text-lg text-white">
+              Don't see your city? We likely serve your area. Call (619) 550-7371 — available 24/7.
+            </p>
+            <Link to="/service-area">
+              <Button className="gap-2 bg-[#e8a020] text-white hover:bg-[#e8a020]/90">
+                View Full Service Area →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
