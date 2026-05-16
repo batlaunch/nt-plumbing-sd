@@ -266,6 +266,18 @@ const jsonLd = {
 };
 
 export default function ServiceAreaPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <Helmet>
