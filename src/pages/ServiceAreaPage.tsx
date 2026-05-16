@@ -300,17 +300,6 @@ export default function ServiceAreaPage() {
         </div>
       </section>
 
-      {/* Map placeholder */}
-      <section className="bg-white px-4 pb-16">
-        <div className="mx-auto max-w-5xl">
-          <div
-            className="overflow-hidden rounded-lg border-2 border-[#1a3a5c]/30 shadow-sm"
-            style={{ height: 400 }}
-          >
-            <ServiceAreaMap />
-          </div>
-        </div>
-      </section>
 
       {/* Regions */}
       <section className="bg-[#f4f6f8] px-4 py-16">
