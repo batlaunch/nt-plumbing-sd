@@ -205,6 +205,93 @@ export default function HomePage() {
       {/* CTA */}
       <CTABanner />
 
+      {/* Get In Touch */}
+      <section className="bg-[#1a3a5c] py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+            {/* Left Column */}
+            <div className="text-white">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">Get In Touch</h2>
+              <p className="mb-8 max-w-md text-white/80">
+                Available 24 hours a day, 7 days a week — including holidays. No overtime fees, no trip charges. Just fast, reliable plumbing service across Greater San Diego and Southern California.
+              </p>
+
+              <a href="tel:+16195507371" className="mb-2 inline-block text-4xl font-extrabold text-[#e8a020] transition-opacity hover:opacity-90 md:text-5xl">
+                (619) 550-7371
+              </a>
+              <p className="mb-8 text-sm text-white/60">Tap to call — we answer 24/7</p>
+
+              <div className="space-y-2 border-t border-white/20 pt-6">
+                <p className="font-semibold">Monday – Sunday: 24 Hours / 7 Days a Week</p>
+                <p className="text-[#e8a020]">Emergency Service: Always Available</p>
+              </div>
+            </div>
+
+            {/* Right Column — Form */}
+            <div className="rounded-xl bg-white p-6 shadow-lg md:p-8">
+              {submitted ? (
+                <div className="flex h-full flex-col items-center justify-center py-10 text-center">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
+                    <Send className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-1 text-xl font-semibold text-[#1a3a5c]">Request Received!</h3>
+                  <p className="text-sm text-muted-foreground">We'll call you back shortly.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="mb-1 block text-sm font-medium text-[#1a3a5c]">Full Name</label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="border-gray-200 focus:border-[#1a3a5c] focus:ring-[#1a3a5c]"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="mb-1 block text-sm font-medium text-[#1a3a5c]">Phone Number</label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="Your Phone Number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="border-gray-200 focus:border-[#1a3a5c] focus:ring-[#1a3a5c]"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="mb-1 block text-sm font-medium text-[#1a3a5c]">Message</label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Describe the issue..."
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      className="border-gray-200 focus:border-[#1a3a5c] focus:ring-[#1a3a5c]"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full gap-2 bg-[#e8a020] text-white hover:bg-[#e8a020]/90"
+                    size="lg"
+                  >
+                    <Send className="h-4 w-4" /> Request a Callback
+                  </Button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Cities We Serve */}
       <section className="section-padding bg-[#f4f6f8]">
         <div className="mx-auto max-w-6xl">
