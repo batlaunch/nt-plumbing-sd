@@ -33,9 +33,13 @@ export default function HomePage() {
         />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
-            Reliable Plumbing Services in Greater San Diego Area
+          <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
+            24/7 Plumber in Greater San Diego, CA
           </h1>
+          <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[#e8a020] md:text-3xl lg:text-4xl">
+            Proudly Serving Greater San Diego &amp; All of Southern California
+            <span className="mx-auto mt-2 block h-0.5 w-16 animate-[fade-in_0.5s_ease-out_0.2s_both] rounded-full bg-[#e8a020]" />
+          </h2>
           <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
             Professional drain cleaning, water heater service, hydro jetting, leak detection, and more. Open 24 hours — serving the greater San Diego area.
           </p>
