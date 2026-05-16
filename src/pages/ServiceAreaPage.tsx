@@ -391,6 +391,16 @@ export default function ServiceAreaPage() {
           </div>
         </div>
       </section>
+
+      {/* Mobile sticky call bar */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#e8a020]/40 bg-[#1a3a5c] px-4 py-3 shadow-lg md:hidden">
+        <a
+          href="tel:+16195507371"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-[#e8a020] px-4 py-3 text-base font-bold text-white"
+        >
+          <Phone className="h-5 w-5" /> Call (619) 550-7371
+        </a>
+      </div>
     </>
   );
 }
