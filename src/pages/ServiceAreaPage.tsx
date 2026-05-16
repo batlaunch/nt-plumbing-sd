@@ -325,7 +325,7 @@ export default function ServiceAreaPage() {
       <section className="bg-[#f4f6f8] px-4 py-16">
         <div className="mx-auto max-w-6xl space-y-14">
           {regions.map((region) => (
-            <div key={region.name}>
+            <div key={region.name} id={REGION_ANCHORS[region.name]} className="scroll-mt-24">
               <h2 className="mb-3 text-2xl font-bold text-[#1a3a5c] md:text-3xl">{region.name}</h2>
               <p className="mb-6 max-w-3xl text-[#2d2d2d]">{region.description}</p>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
