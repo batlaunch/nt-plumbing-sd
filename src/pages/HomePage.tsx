@@ -1,10 +1,56 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap } from "lucide-react";
+import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
 import { allPhotos, getPhotoUrl } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
 import afterCleaning from "@/assets/after-cleaning.jpeg";
+
+const cityRegions = [
+  {
+    name: "San Diego Core",
+    cities: [
+      "Balboa Park Area", "Barrio Logan", "Chula Vista", "City Heights", "Clairemont Mesa",
+      "College Area", "Downtown San Diego", "East San Diego", "El Cajon", "Encanto",
+      "Golden Hill", "Grant Hill", "Imperial Beach", "Kearny Mesa", "La Jolla",
+      "La Mesa", "Lemon Grove", "Linda Vista", "Logan Heights", "Midway District",
+      "Miramar", "Mission Hills", "Mission Valley", "National City", "Normal Heights",
+      "North Park", "Ocean Beach", "Old Town San Diego", "Pacific Beach", "Point Loma",
+      "Rancho Bernardo", "Rancho Peñasquitos", "San Carlos", "Santee", "Scripps Ranch",
+      "Serra Mesa", "Skyline", "Tierrasanta", "University City", "University Heights",
+    ],
+  },
+  {
+    name: "North County San Diego",
+    cities: [
+      "Bonsall", "Borrego Springs", "Camp Pendleton Area", "Carlsbad", "Del Mar",
+      "Encinitas", "Escondido", "Fallbrook", "Leucadia", "Oceanside", "Poway",
+      "Rainbow", "Ramona", "San Marcos", "Solana Beach", "Valley Center", "Vista",
+    ],
+  },
+  {
+    name: "South Bay / East County",
+    cities: [
+      "Alpine", "Bonita", "Casa de Oro", "El Cajon", "Flinn Springs", "Jamul",
+      "Lakeside", "Mount Helix", "Pine Valley", "Potrero", "Rancho San Diego",
+      "San Diego Country Estates", "Spring Valley", "Tecate Area (US side)",
+    ],
+  },
+  {
+    name: "Inland / Temecula Valley",
+    cities: [
+      "Hemet", "Lake Elsinore", "Menifee", "Moreno Valley", "Murrieta",
+      "Perris", "San Jacinto", "Sun City", "Temecula", "Wildomar", "Winchester",
+    ],
+  },
+  {
+    name: "Orange County (South)",
+    cities: [
+      "Dana Point", "Laguna Beach", "Laguna Hills", "Laguna Niguel", "Mission Viejo",
+      "San Clemente", "San Juan Capistrano",
+    ],
+  },
+];
 
 const services = [
   { icon: Droplets, title: "Drain Cleaning", desc: "Hydro jetting and drain clearing for stubborn clogs and buildups." },
@@ -139,6 +185,48 @@ export default function HomePage() {
 
       {/* CTA */}
       <CTABanner />
+
+      {/* Cities We Serve */}
+      <section className="section-padding bg-[#f4f6f8]">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-2 flex items-center justify-center gap-2">
+            <MapPin className="h-6 w-6 text-[#1a3a5c]" />
+            <h2 className="text-center text-3xl font-bold text-[#1a3a5c]">Cities We Serve Across Southern California</h2>
+          </div>
+          <p className="mx-auto mb-10 max-w-3xl text-center text-muted-foreground">
+            NTP Plumbing provides 24/7 plumbing services to homeowners and businesses throughout Greater San Diego and surrounding Southern California communities. If you don't see your city listed, call us — we likely serve your area.
+          </p>
+
+          {cityRegions.map((region) => (
+            <div key={region.name} className="mb-8">
+              <h3 className="mb-3 text-lg font-semibold text-[#1a3a5c]">{region.name}</h3>
+              <div className="flex flex-wrap gap-2">
+                {region.cities.map((city) => (
+                  <Link
+                    key={city}
+                    to="/service-area"
+                    className="rounded-full bg-[#e8f0f8] px-4 py-1.5 text-sm font-medium text-[#1a3a5c] transition-colors hover:bg-[#e8a020] hover:text-white"
+                  >
+                    {city}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Callout bar */}
+          <div className="mt-10 rounded-xl bg-[#1a3a5c] px-6 py-8 text-center">
+            <p className="mb-4 text-lg text-white">
+              Don't see your city? We likely serve your area. Call (619) 550-7371 — available 24/7.
+            </p>
+            <Link to="/service-area">
+              <Button className="gap-2 bg-[#e8a020] text-white hover:bg-[#e8a020]/90">
+                View Full Service Area →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
