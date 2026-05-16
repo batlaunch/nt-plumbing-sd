@@ -1,7 +1,98 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Star, Shield, MapPin, Wrench } from "lucide-react";
+
+const GOOGLE_MAPS_API_KEY = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined) ?? "";
+
+const SD_CENTER = { lat: 32.7157, lng: -117.1611 };
+const BORDER_LAT = 32.5343;
+const RADIUS_MILES = 80;
+
+function buildServiceAreaPolygon() {
+  const points: { lat: number; lng: number }[] = [];
+  const latPerMile = 1 / 69;
+  const lngPerMile = 1 / (Math.cos((SD_CENTER.lat * Math.PI) / 180) * 69);
+  for (let i = 0; i <= 128; i++) {
+    const angle = (i / 128) * 2 * Math.PI;
+    const lat = SD_CENTER.lat + Math.cos(angle) * RADIUS_MILES * latPerMile;
+    const lng = SD_CENTER.lng + Math.sin(angle) * RADIUS_MILES * lngPerMile;
+    points.push({ lat: Math.max(lat, BORDER_LAT), lng });
+  }
+  return points;
+}
+
+let mapsLoaderPromise: Promise<any> | null = null;
+function loadGoogleMaps(apiKey: string): Promise<any> {
+  if (typeof window === "undefined") return Promise.reject(new Error("SSR"));
+  if ((window as any).google?.maps) return Promise.resolve((window as any).google);
+  if (mapsLoaderPromise) return mapsLoaderPromise;
+  mapsLoaderPromise = new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}`;
+    s.async = true;
+    s.defer = true;
+    s.onload = () => resolve((window as any).google);
+    s.onerror = () => reject(new Error("Failed to load Google Maps"));
+    document.head.appendChild(s);
+  });
+  return mapsLoaderPromise;
+}
+
+function ServiceAreaMap() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current || !GOOGLE_MAPS_API_KEY) return;
+    let cancelled = false;
+    loadGoogleMaps(GOOGLE_MAPS_API_KEY)
+      .then((g) => {
+        if (cancelled || !ref.current) return;
+        const map = new g.maps.Map(ref.current, {
+          center: SD_CENTER,
+          zoom: 8,
+          streetViewControl: false,
+          zoomControl: true,
+          mapTypeControl: false,
+          fullscreenControl: false,
+        });
+        new g.maps.Polygon({
+          paths: buildServiceAreaPolygon(),
+          strokeColor: "#e8a020",
+          strokeOpacity: 1,
+          strokeWeight: 2,
+          fillColor: "#1a3a5c",
+          fillOpacity: 0.2,
+          clickable: false,
+          map,
+        });
+        new g.maps.Marker({ position: SD_CENTER, map, title: "San Diego, CA" });
+      })
+      .catch((e) => console.error(e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (!GOOGLE_MAPS_API_KEY) {
+    return (
+      <iframe
+        title="NTP Plumbing Service Area Map"
+        src="https://www.google.com/maps?q=San+Diego,+CA&z=8&output=embed"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+      />
+    );
+  }
+
+  return <div ref={ref} style={{ width: "100%", height: "100%" }} />;
+}
+
 
 const regions = [
   {
@@ -216,16 +307,7 @@ export default function ServiceAreaPage() {
             className="overflow-hidden rounded-lg border-2 border-[#1a3a5c]/30 shadow-sm"
             style={{ height: 400 }}
           >
-            <iframe
-              title="NTP Plumbing Service Area Map"
-              src="https://www.google.com/maps?q=San+Diego,+CA&z=9&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <ServiceAreaMap />
           </div>
         </div>
       </section>
