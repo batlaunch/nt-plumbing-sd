@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin, Send } from "lucide-react";
+import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
 import { allPhotos, getPhotoUrl } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
