@@ -1,10 +1,56 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap } from "lucide-react";
+import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
 import { allPhotos, getPhotoUrl } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
 import afterCleaning from "@/assets/after-cleaning.jpeg";
+
+const cityRegions = [
+  {
+    name: "San Diego Core",
+    cities: [
+      "Balboa Park Area", "Barrio Logan", "Chula Vista", "City Heights", "Clairemont Mesa",
+      "College Area", "Downtown San Diego", "East San Diego", "El Cajon", "Encanto",
+      "Golden Hill", "Grant Hill", "Imperial Beach", "Kearny Mesa", "La Jolla",
+      "La Mesa", "Lemon Grove", "Linda Vista", "Logan Heights", "Midway District",
+      "Miramar", "Mission Hills", "Mission Valley", "National City", "Normal Heights",
+      "North Park", "Ocean Beach", "Old Town San Diego", "Pacific Beach", "Point Loma",
+      "Rancho Bernardo", "Rancho Peñasquitos", "San Carlos", "Santee", "Scripps Ranch",
+      "Serra Mesa", "Skyline", "Tierrasanta", "University City", "University Heights",
+    ],
+  },
+  {
+    name: "North County San Diego",
+    cities: [
+      "Bonsall", "Borrego Springs", "Camp Pendleton Area", "Carlsbad", "Del Mar",
+      "Encinitas", "Escondido", "Fallbrook", "Leucadia", "Oceanside", "Poway",
+      "Rainbow", "Ramona", "San Marcos", "Solana Beach", "Valley Center", "Vista",
+    ],
+  },
+  {
+    name: "South Bay / East County",
+    cities: [
+      "Alpine", "Bonita", "Casa de Oro", "El Cajon", "Flinn Springs", "Jamul",
+      "Lakeside", "Mount Helix", "Pine Valley", "Potrero", "Rancho San Diego",
+      "San Diego Country Estates", "Spring Valley", "Tecate Area (US side)",
+    ],
+  },
+  {
+    name: "Inland / Temecula Valley",
+    cities: [
+      "Hemet", "Lake Elsinore", "Menifee", "Moreno Valley", "Murrieta",
+      "Perris", "San Jacinto", "Sun City", "Temecula", "Wildomar", "Winchester",
+    ],
+  },
+  {
+    name: "Orange County (South)",
+    cities: [
+      "Dana Point", "Laguna Beach", "Laguna Hills", "Laguna Niguel", "Mission Viejo",
+      "San Clemente", "San Juan Capistrano",
+    ],
+  },
+];
 
 const services = [
   { icon: Droplets, title: "Drain Cleaning", desc: "Hydro jetting and drain clearing for stubborn clogs and buildups." },
