@@ -259,7 +259,7 @@ export default function HomePage() {
                 {region.cities.map((city) => (
                   <Link
                     key={city}
-                    to="/service-area"
+                    to={`/service-area#${region.anchor}`}
                     className="rounded-full bg-[#e8f0f8] px-4 py-1.5 text-sm font-medium text-[#1a3a5c] transition-colors hover:bg-[#e8a020] hover:text-white"
                   >
                     {city}
