@@ -307,16 +307,7 @@ export default function ServiceAreaPage() {
             className="overflow-hidden rounded-lg border-2 border-[#1a3a5c]/30 shadow-sm"
             style={{ height: 400 }}
           >
-            <iframe
-              title="NTP Plumbing Service Area Map"
-              src="https://www.google.com/maps?q=San+Diego,+CA&z=9&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <ServiceAreaMap />
           </div>
         </div>
       </section>
