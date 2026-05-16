@@ -213,10 +213,19 @@ export default function ServiceAreaPage() {
       <section className="bg-white px-4 pb-16">
         <div className="mx-auto max-w-5xl">
           <div
-            className="flex items-center justify-center rounded-lg border-2 border-[#1a3a5c]/30 bg-[#f4f6f8] px-6 text-center text-sm font-medium text-[#1a3a5c]/70"
+            className="overflow-hidden rounded-lg border-2 border-[#1a3a5c]/30 shadow-sm"
             style={{ height: 400 }}
           >
-            [Embed Google Map Here — service area radius centered on San Diego]
+            <iframe
+              title="NTP Plumbing Service Area Map"
+              src="https://www.google.com/maps?q=San+Diego,+CA&z=9&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
