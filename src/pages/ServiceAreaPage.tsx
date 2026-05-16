@@ -1,8 +1,16 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Star, Shield, MapPin, Wrench } from "lucide-react";
+
+const REGION_ANCHORS: Record<string, string> = {
+  "San Diego Core": "san-diego-core",
+  "North County San Diego": "north-county",
+  "South Bay & East County": "south-bay-east-county",
+  "Inland Empire / Temecula Valley": "inland-empire-temecula",
+  "South Orange County": "south-orange-county",
+};
 
 const GOOGLE_MAPS_API_KEY = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined) ?? "";
 
