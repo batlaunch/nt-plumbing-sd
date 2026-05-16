@@ -319,19 +319,6 @@ export default function ServiceAreaPage() {
           </p>
         </div>
       </section>
-
-      {/* Service Area Map */}
-      <section className="bg-white px-4 pb-16">
-        <div className="mx-auto max-w-5xl">
-          <div className="overflow-hidden rounded-lg border border-[#1a3a5c]/30 shadow-sm" style={{ height: 400 }}>
-            <ServiceAreaMap />
-          </div>
-          <p className="mt-3 text-center text-sm text-muted-foreground">
-            Approximate 80-mile service radius from San Diego, clipped at the US/Mexico border.
-          </p>
-        </div>
-      </section>
-
       {/* Regions */}
       <section className="bg-[#f4f6f8] px-4 py-16">
         <div className="mx-auto max-w-6xl space-y-14">
