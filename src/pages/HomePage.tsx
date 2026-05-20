@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
 import { allPhotos, getPhotoUrl } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
+import Seo from "@/components/Seo";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
 import afterCleaning from "@/assets/after-cleaning.jpeg";
 
