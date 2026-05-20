@@ -62,6 +62,11 @@ const reviews = [
 export default function ReviewsPage() {
   return (
     <>
+      <Seo
+        title="NTP Plumbing Reviews | 5-Star Plumber in San Diego, CA"
+        description="Read 5-star Yelp reviews for NTP Plumbing from customers across El Cajon, La Mesa, Lakeside, Escondido, and Greater San Diego."
+        path="/reviews"
+      />
       <section className="section-padding">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
@@ -70,7 +75,7 @@ export default function ReviewsPage() {
                 <Star key={i} className="h-6 w-6 fill-accent text-accent" />
               ))}
             </div>
-            <h1 className="mb-2 text-4xl font-bold">Customer Reviews</h1>
+            <h1 className="mb-2 text-4xl font-bold">NTP Plumbing Customer Reviews</h1>
             <p className="text-muted-foreground">
               5.0-star rating based on 9 Yelp reviews
             </p>
