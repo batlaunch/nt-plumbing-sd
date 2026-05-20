@@ -1,6 +1,26 @@
+import { Helmet } from "react-helmet-async";
 import { Droplets, Wrench, Flame, ShowerHead, Trash2, PipetteIcon, Zap, Search, Eye, Plug, Gauge, CircleDot } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
+import Seo from "@/components/Seo";
 import { getPhotoUrl } from "@/data/photos";
+
+const faqs = [
+  { q: "Do you offer emergency plumbing services?", a: "Yes! NTP is open 24 hours a day, 7 days a week. We're available for emergency plumbing calls at any time." },
+  { q: "What areas do you serve?", a: "We serve El Cajon and the greater San Diego County area." },
+  { q: "What payment methods do you accept?", a: "We accept credit cards and cryptocurrency for your convenience." },
+  { q: "Do you provide free estimates?", a: "Contact us for a free estimate on your plumbing project." },
+  { q: "Are you licensed and insured?", a: "Yes — NTP is fully licensed and insured." },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 const services = [
   { icon: ShowerHead, title: "Bathtub Installation & Repair", desc: "Full bathtub installation and repair services for all types and sizes." },
