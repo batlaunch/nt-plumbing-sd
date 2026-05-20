@@ -1,17 +1,23 @@
 import { useState } from "react";
 import { allPhotos } from "@/data/photos";
 import { X } from "lucide-react";
+import Seo from "@/components/Seo";
 
 export default function GalleryPage() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   return (
     <>
+      <Seo
+        title="Plumbing Work Photo Gallery | NTP Plumbing San Diego"
+        description="Browse photos of NTP Plumbing's recent jobs across Greater San Diego — drain cleaning, water heaters, hydro jetting, sewer liner repairs, and more."
+        path="/gallery"
+      />
       <section className="section-padding">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
-            <h1 className="mb-2 text-4xl font-bold">Photo Gallery</h1>
-            <p className="text-muted-foreground">A look at our previous plumbing work</p>
+            <h1 className="mb-2 text-4xl font-bold">NTP Plumbing Photo Gallery</h1>
+            <p className="text-muted-foreground">A look at our previous plumbing work across San Diego</p>
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
