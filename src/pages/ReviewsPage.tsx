@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
+import Seo from "@/components/Seo";
 
 const reviews = [
   {
