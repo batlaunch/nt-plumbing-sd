@@ -46,7 +46,7 @@ export default function AboutPage() {
             a day, 7 days a week, ensuring customers can get help whenever plumbing emergencies arise.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            NTP serves the El Cajon area and accepts credit cards as well as cryptocurrency payments for 
+            NTP serves the El Cajon area and accepts cash, check, credit cards, and Zelle for
             added convenience.
           </p>
 
