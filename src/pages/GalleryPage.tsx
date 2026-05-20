@@ -49,6 +49,7 @@ export default function GalleryPage() {
           <button
             className="absolute right-4 top-4 rounded-full bg-background/20 p-2 text-background hover:bg-background/40"
             onClick={() => setSelectedIdx(null)}
+            aria-label="Close gallery"
           >
             <X className="h-6 w-6" />
           </button>
@@ -66,6 +67,7 @@ export default function GalleryPage() {
             <button
               className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-background/20 px-3 py-2 text-lg text-background hover:bg-background/40"
               onClick={(e) => { e.stopPropagation(); setSelectedIdx(selectedIdx - 1); }}
+              aria-label="Previous photo"
             >
               ‹
             </button>
@@ -74,6 +76,7 @@ export default function GalleryPage() {
             <button
               className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-background/20 px-3 py-2 text-lg text-background hover:bg-background/40"
               onClick={(e) => { e.stopPropagation(); setSelectedIdx(selectedIdx + 1); }}
+              aria-label="Next photo"
             >
               ›
             </button>
