@@ -1,0 +1,13 @@
+# NTP Plumbing
+
+> 24/7 plumber serving Greater San Diego and Southern California — drain cleaning, water heaters, hydro jetting, leak detection, and sewer liner repairs. 5-star rated on Yelp. Call (619) 550-7371.
+
+## Pages
+
+- [Home](/): Overview of NTP Plumbing's 24/7 services across Greater San Diego.
+- [About](/about): Owner-operator Nick T., 20+ years of plumbing experience in El Cajon, CA.
+- [Services](/services): Full list of residential and commercial plumbing services with FAQ.
+- [Gallery](/gallery): Photos of recent plumbing jobs.
+- [Reviews](/reviews): 5-star customer reviews from Yelp.
+- [Service Area](/service-area): Cities and regions served across Southern California.
+- [Contact](/contact): Phone, hours, and service area details.

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
 import { allPhotos, getPhotoUrl } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
+import Seo from "@/components/Seo";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
 import afterCleaning from "@/assets/after-cleaning.jpeg";
 
@@ -69,6 +70,11 @@ const services = [
 export default function HomePage() {
   return (
     <>
+      <Seo
+        title="24/7 Plumber in Greater San Diego, CA | NTP Plumbing"
+        description="NTP Plumbing — 24/7 plumbing in Greater San Diego. Drain cleaning, water heaters, hydro jetting, leak detection. 5-star rated. Call (619) 550-7371."
+        path="/"
+      />
       {/* Emergency Banner */}
       <div className="bg-accent px-4 py-2 text-center text-sm font-semibold text-accent-foreground">
         🚨 24/7 Emergency Plumbing Available — Call Now for Fast Response!

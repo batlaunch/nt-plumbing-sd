@@ -1,17 +1,23 @@
 import { useState } from "react";
 import { allPhotos } from "@/data/photos";
 import { X } from "lucide-react";
+import Seo from "@/components/Seo";
 
 export default function GalleryPage() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   return (
     <>
+      <Seo
+        title="Plumbing Work Photo Gallery | NTP Plumbing San Diego"
+        description="Browse photos of NTP Plumbing's recent jobs across Greater San Diego — drain cleaning, water heaters, hydro jetting, sewer liner repairs, and more."
+        path="/gallery"
+      />
       <section className="section-padding">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
-            <h1 className="mb-2 text-4xl font-bold">Photo Gallery</h1>
-            <p className="text-muted-foreground">A look at our previous plumbing work</p>
+            <h1 className="mb-2 text-4xl font-bold">NTP Plumbing Photo Gallery</h1>
+            <p className="text-muted-foreground">A look at our previous plumbing work across San Diego</p>
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -43,6 +49,7 @@ export default function GalleryPage() {
           <button
             className="absolute right-4 top-4 rounded-full bg-background/20 p-2 text-background hover:bg-background/40"
             onClick={() => setSelectedIdx(null)}
+            aria-label="Close gallery"
           >
             <X className="h-6 w-6" />
           </button>
@@ -60,6 +67,7 @@ export default function GalleryPage() {
             <button
               className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-background/20 px-3 py-2 text-lg text-background hover:bg-background/40"
               onClick={(e) => { e.stopPropagation(); setSelectedIdx(selectedIdx - 1); }}
+              aria-label="Previous photo"
             >
               ‹
             </button>
@@ -68,6 +76,7 @@ export default function GalleryPage() {
             <button
               className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-background/20 px-3 py-2 text-lg text-background hover:bg-background/40"
               onClick={(e) => { e.stopPropagation(); setSelectedIdx(selectedIdx + 1); }}
+              aria-label="Next photo"
             >
               ›
             </button>

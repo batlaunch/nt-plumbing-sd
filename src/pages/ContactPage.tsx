@@ -1,12 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Clock, CreditCard } from "lucide-react";
+import Seo from "@/components/Seo";
 
 export default function ContactPage() {
   return (
     <section className="section-padding">
+      <Seo
+        title="Contact NTP Plumbing | 24/7 Plumber in San Diego, CA"
+        description="Contact NTP Plumbing for 24/7 emergency or scheduled plumbing service in Greater San Diego. Call (619) 550-7371 — available nights, weekends, and holidays."
+        path="/contact"
+      />
       <div className="mx-auto max-w-3xl">
         <div className="mb-10 text-center">
-          <h1 className="mb-2 text-4xl font-bold">Contact NTP</h1>
+          <h1 className="mb-2 text-4xl font-bold">Contact NTP Plumbing</h1>
           <p className="mb-2 text-lg font-medium text-foreground">Get in touch for a free quote</p>
           <p className="mb-6 text-muted-foreground">Call us anytime — available 24/7 for emergency and scheduled service</p>
           <a href="tel:+16195507371">

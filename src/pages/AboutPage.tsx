@@ -1,9 +1,15 @@
 import { getPhotoUrl } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
+import Seo from "@/components/Seo";
 
 export default function AboutPage() {
   return (
     <>
+      <Seo
+        title="About NTP Plumbing | 24/7 Plumber in El Cajon, CA"
+        description="Learn about NTP Plumbing — owner-operator Nick T. with 20+ years of experience serving El Cajon and Greater San Diego. 5-star rated, licensed, and available 24/7."
+        path="/about"
+      />
       {/* Hero */}
       <section className="relative flex min-h-[300px] items-center justify-center overflow-hidden">
         <img
@@ -13,8 +19,8 @@ export default function AboutPage() {
         />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 text-center">
-          <h1 className="text-4xl font-bold text-primary-foreground md:text-5xl">About NTP</h1>
-          <p className="mt-2 text-primary-foreground/70">Your Trusted Plumber in El Cajon, CA</p>
+          <h1 className="text-4xl font-bold text-primary-foreground md:text-5xl">About NTP Plumbing</h1>
+          <p className="mt-2 text-primary-foreground/70">Your Trusted 24/7 Plumber in El Cajon &amp; Greater San Diego</p>
         </div>
       </section>
 
