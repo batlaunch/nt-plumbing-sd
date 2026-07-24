@@ -16,7 +16,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative flex min-h-[300px] items-center justify-center overflow-hidden">
         <img
-          src="/images/gallery/4dR7TDBrMzHypMEX7B962g-o.jpg"
+          src="/images/gallery/4dR7TDBrMzHypMEX7B962g-o.webp"
           alt="NTP Plumbing owner-operator on a plumbing job in El Cajon, CA"
           width={750}
           height={1000}

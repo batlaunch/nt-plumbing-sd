@@ -50,7 +50,7 @@ export default function ServicesPage() {
       </Helmet>
       <section className="relative flex min-h-[260px] items-center justify-center overflow-hidden">
         <img
-          src="/images/gallery/Of6S0dEOrBOW3FAmeCv-Jg-o.jpg"
+          src="/images/gallery/Of6S0dEOrBOW3FAmeCv-Jg-o.webp"
           alt="NTP Plumbing water heater installation, one of our core plumbing services"
           width={750}
           height={1000}

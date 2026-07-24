@@ -67,7 +67,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden md:min-h-[600px]">
         <img
-          src="/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.jpg"
+          src="/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.webp"
           alt="NTP Plumbing technician completing a 24/7 emergency plumbing job in Greater San Diego, CA"
           width={750}
           height={1000}
