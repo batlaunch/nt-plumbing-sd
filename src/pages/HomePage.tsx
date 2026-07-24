@@ -40,22 +40,6 @@ const cityRegions = [
       "San Diego Country Estates", "Spring Valley", "Tecate Area (US side)",
     ],
   },
-  {
-    name: "Inland / Temecula Valley",
-    anchor: "inland-empire-temecula",
-    cities: [
-      "Hemet", "Lake Elsinore", "Menifee", "Moreno Valley", "Murrieta",
-      "Perris", "San Jacinto", "Sun City", "Temecula", "Wildomar", "Winchester",
-    ],
-  },
-  {
-    name: "Orange County (South)",
-    anchor: "south-orange-county",
-    cities: [
-      "Dana Point", "Laguna Beach", "Laguna Hills", "Laguna Niguel", "Mission Viejo",
-      "San Clemente", "San Juan Capistrano",
-    ],
-  },
 ];
 
 const services = [
@@ -96,7 +80,7 @@ export default function HomePage() {
             24/7 Plumber in Greater San Diego, CA
           </h1>
           <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[#e8a020] md:text-3xl lg:text-4xl">
-            Proudly Serving Greater San Diego &amp; All of Southern California
+            Fast, 5-Star Rated &amp; Always On Call
             <span className="mx-auto mt-2 block h-0.5 w-16 animate-[fade-in_0.5s_ease-out_0.2s_both] rounded-full bg-[#e8a020]" />
           </h2>
           <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
@@ -207,7 +191,7 @@ export default function HomePage() {
             <div className="text-white">
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">Get In Touch</h2>
               <p className="mb-8 max-w-md text-white/80">
-                Available 24 hours a day, 7 days a week — including holidays. No overtime fees, no trip charges. Just fast, reliable plumbing service across Greater San Diego and Southern California.
+                Available 24 hours a day, 7 days a week — including holidays. No overtime fees, no trip charges. Just fast, reliable plumbing service across Greater San Diego.
               </p>
 
               <a href="tel:+16195507371" className="mb-2 inline-block text-4xl font-extrabold text-[#e8a020] transition-opacity hover:opacity-90 md:text-5xl">
@@ -254,10 +238,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-2 flex items-center justify-center gap-2">
             <MapPin className="h-6 w-6 text-[#1a3a5c]" />
-            <h2 className="text-center text-3xl font-bold text-[#1a3a5c]">Cities We Serve Across Southern California</h2>
+            <h2 className="text-center text-3xl font-bold text-[#1a3a5c]">Cities We Serve Across Greater San Diego</h2>
           </div>
           <p className="mx-auto mb-10 max-w-3xl text-center text-muted-foreground">
-            NTP Plumbing provides 24/7 plumbing services to homeowners and businesses throughout Greater San Diego and surrounding Southern California communities. If you don't see your city listed, call us — we likely serve your area.
+            NTP Plumbing provides 24/7 plumbing services to homeowners and businesses throughout Greater San Diego, CA. If you don't see your city listed, call us — we likely serve your area.
           </p>
 
           {cityRegions.map((region) => (

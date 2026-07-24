@@ -61,7 +61,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <MapPin className="h-4 w-4 shrink-0" />
-                <span>Serving Greater San Diego &amp; Southern California</span>
+                <span>Serving Greater San Diego, CA</span>
               </div>
               <p className="text-xs text-white/50">No overtime fees. No trip charges.</p>
             </div>
@@ -72,7 +72,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 bg-[#142d48]">
         <div className="mx-auto max-w-7xl px-4 py-4 text-center text-xs text-white/50">
-          © 2025 NTP Plumbing. All Rights Reserved. | Serving Greater San Diego &amp; Southern California
+          © 2025 NTP Plumbing. All Rights Reserved. | Serving Greater San Diego, CA
         </div>
       </div>
     </footer>
