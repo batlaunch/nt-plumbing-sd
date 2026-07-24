@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
-import { allPhotos, getPhotoUrl } from "@/data/photos";
+import { allPhotos } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
@@ -83,8 +83,10 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden md:min-h-[600px]">
         <img
-          src={getPhotoUrl("xotUmIw4oPCgxALWxykLaQ", "o")}
-          alt="NTP Plumbing work"
+          src="/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.jpg"
+          alt="NTP Plumbing technician completing a 24/7 emergency plumbing job in Greater San Diego, CA"
+          width={750}
+          height={1000}
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
         />

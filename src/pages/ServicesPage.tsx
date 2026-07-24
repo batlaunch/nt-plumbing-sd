@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Droplets, Wrench, Flame, ShowerHead, Trash2, PipetteIcon, Zap, Search, Eye, Plug, Gauge, CircleDot } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
-import { getPhotoUrl } from "@/data/photos";
 
 const faqs = [
   { q: "Do you offer emergency plumbing services?", a: "Yes! NTP is open 24 hours a day, 7 days a week. We're available for emergency plumbing calls at any time." },
@@ -51,8 +50,10 @@ export default function ServicesPage() {
       </Helmet>
       <section className="relative flex min-h-[260px] items-center justify-center overflow-hidden">
         <img
-          src={getPhotoUrl("Of6S0dEOrBOW3FAmeCv-Jg", "o")}
-          alt="NTP Services"
+          src="/images/gallery/Of6S0dEOrBOW3FAmeCv-Jg-o.jpg"
+          alt="NTP Plumbing water heater installation, one of our core plumbing services"
+          width={750}
+          height={1000}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="hero-overlay absolute inset-0" />

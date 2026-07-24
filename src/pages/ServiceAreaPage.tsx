@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Star, Shield, MapPin, Wrench } from "lucide-react";
+import Seo from "@/components/Seo";
 
 const REGION_ANCHORS: Record<string, string> = {
   "San Diego Core": "san-diego-core",
@@ -280,13 +281,12 @@ export default function ServiceAreaPage() {
 
   return (
     <>
+      <Seo
+        title="NTP Plumbing Service Area | Greater San Diego & Southern California"
+        description="NTP Plumbing serves all of Greater San Diego and Southern California. View our full list of cities, towns, and zip codes served. Available 24/7 for emergency plumbing."
+        path="/service-area"
+      />
       <Helmet>
-        <title>NTP Plumbing Service Area | Greater San Diego & Southern California</title>
-        <meta
-          name="description"
-          content="NTP Plumbing serves all of Greater San Diego and Southern California. View our full list of cities, towns, and zip codes served. Available 24/7 for emergency plumbing."
-        />
-        <link rel="canonical" href="https://ntpplumbing.com/service-area" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
