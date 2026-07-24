@@ -6,8 +6,9 @@
 
 - [Home](/): Overview of NTP Plumbing's 24/7 services across Greater San Diego.
 - [About](/about): Owner-operator Nick T., 20+ years of plumbing experience in El Cajon, CA.
-- [Services](/services): Full list of residential and commercial plumbing services with FAQ.
+- [Services](/services): Full list of residential and commercial plumbing services with FAQ, grouped into detail pages for water heaters, leak detection, drain cleaning & hydro jetting, sewer line repair, fixtures, and backflow testing.
 - [Gallery](/gallery): Photos of recent plumbing jobs.
 - [Reviews](/reviews): 5-star customer reviews from Yelp.
 - [Service Area](/service-area): Cities and regions served across Greater San Diego, CA.
+- [Blog](/blog): Plumbing tips and advice for Greater San Diego homeowners.
 - [Contact](/contact): Phone, hours, and service area details.

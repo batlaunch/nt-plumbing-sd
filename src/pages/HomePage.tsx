@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
+import { Phone, Shield, Clock, Star, Wrench, MapPin } from "lucide-react";
 import { allPhotos } from "@/data/photos";
+import { servicePages } from "@/data/servicePages";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
@@ -40,15 +41,6 @@ const cityRegions = [
       "San Diego Country Estates", "Spring Valley", "Tecate Area (US side)",
     ],
   },
-];
-
-const services = [
-  { icon: Droplets, title: "Drain Cleaning", desc: "Hydro jetting and drain clearing for stubborn clogs and buildups." },
-  { icon: Flame, title: "Water Heaters", desc: "Installation, repair, and replacement of all water heater types." },
-  { icon: Wrench, title: "Leak Detection", desc: "Advanced camera and line locating technology to find hidden leaks." },
-  { icon: ShowerHead, title: "Bathtub & Faucet", desc: "Installation and repair of bathtubs, showers, and faucets." },
-  { icon: PipetteIcon, title: "Sewer Liners", desc: "Trenchless sewer liner repairs — full liners and sectional liners." },
-  { icon: Zap, title: "Backflow Testing", desc: "Certified backflow prevention testing and device installation." },
 ];
 
 export default function HomePage() {
@@ -124,12 +116,16 @@ export default function HomePage() {
             <p className="text-muted-foreground">Comprehensive plumbing solutions for residential and commercial properties</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <div key={s.title} className="service-card-hover rounded-xl border bg-card p-6">
+            {servicePages.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/services/${s.slug}`}
+                className="service-card-hover rounded-xl border bg-card p-6"
+              >
                 <s.icon className="mb-3 h-8 w-8 text-primary" />
-                <h3 className="mb-1 text-lg font-semibold">{s.title}</h3>
-                <p className="text-sm text-muted-foreground">{s.desc}</p>
-              </div>
+                <h3 className="mb-1 text-lg font-semibold">{s.navTitle}</h3>
+                <p className="text-sm text-muted-foreground">{s.cardDesc}</p>
+              </Link>
             ))}
           </div>
           <div className="mt-8 text-center">

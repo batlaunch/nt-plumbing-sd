@@ -6,10 +6,14 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-937G98QVQC');
-  gtag('config', 'G-M5FWP4YX6S');
+  // Only send real hits from the live production domain — otherwise every
+  // localhost/staging/preview page load (including our own QA testing)
+  // counts as a real visitor in GA4.
+  if (["ntpplumbing.com", "www.ntpplumbing.com"].includes(location.hostname)) {
+    gtag('js', new Date());
+    gtag('config', 'G-937G98QVQC');
+    gtag('config', 'G-M5FWP4YX6S');
+  }
 </script>
     
     <meta charset="UTF-8" />

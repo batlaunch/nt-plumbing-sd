@@ -44,6 +44,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2 text-sm">
               <Link to="/" className="text-white/80 transition-colors hover:text-[#e8a020]">Home</Link>
               <a href="/#services" className="text-white/80 transition-colors hover:text-[#e8a020]">Services</a>
+              <Link to="/blog" className="text-white/80 transition-colors hover:text-[#e8a020]">Blog</Link>
               <Link to="/service-area" className="text-white/80 transition-colors hover:text-[#e8a020]">Service Area</Link>
             </nav>
           </div>
