@@ -53,29 +53,40 @@ async function main() {
   });
   const base = previewServer.resolvedUrls.local[0].replace(/\/$/, "");
 
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
+  try {
+    const browser = await chromium.launch();
+    try {
+      const page = await browser.newPage();
+      let ok = 0;
+      for (const route of ROUTES) {
+        await page.goto(`${base}${route}`, { waitUntil: "networkidle" });
+        // Give react-helmet-async's rAF-deferred head commit a moment to land.
+        await page.waitForTimeout(150);
+        const html = await page.content();
 
-  let ok = 0;
-  for (const route of ROUTES) {
-    await page.goto(`${base}${route}`, { waitUntil: "networkidle" });
-    // Give react-helmet-async's rAF-deferred head commit a moment to land.
-    await page.waitForTimeout(150);
-    const html = await page.content();
-
-    const outDir = route === "/" ? DIST : path.join(DIST, route.slice(1));
-    await mkdir(outDir, { recursive: true });
-    await writeFile(path.join(outDir, "index.html"), html);
-    ok++;
-    console.log(`prerendered ${route}`);
+        const outDir = route === "/" ? DIST : path.join(DIST, route.slice(1));
+        await mkdir(outDir, { recursive: true });
+        await writeFile(path.join(outDir, "index.html"), html);
+        ok++;
+        console.log(`prerendered ${route}`);
+      }
+      console.log(`Prerendered ${ok}/${ROUTES.length} routes.`);
+    } finally {
+      await browser.close();
+    }
+  } finally {
+    await previewServer.close();
   }
-
-  await browser.close();
-  await previewServer.close();
-  console.log(`Prerendered ${ok}/${ROUTES.length} routes.`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Prerendering is a progressive enhancement on top of the plain `vite build`
+// output that already exists in dist/ — it must never fail the build. If the
+// host environment doesn't have Playwright's browser available (e.g. a fresh
+// deploy container without the postinstall step having run), skip it and let
+// the already-built, still-fully-functional CSR site ship as-is.
+main()
+  .then(() => process.exit(0))
+  .catch((err) => {
+    console.error("Prerendering failed — shipping build without it:", err.message);
+    process.exit(0);
+  });
