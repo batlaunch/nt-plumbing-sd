@@ -73,7 +73,15 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 bg-[#142d48]">
         <div className="mx-auto max-w-7xl px-4 py-4 text-center text-xs text-white/50">
-          © 2025 NTP Plumbing. All Rights Reserved. | Serving Greater San Diego, CA
+          © 2025 NTP Plumbing. All Rights Reserved. | Serving Greater San Diego, CA | Website by{" "}
+          <a
+            href="https://batlaunch.com"
+            target="_blank"
+            rel="noopener"
+            className="text-white/70 transition-colors hover:text-[#e8a020]"
+          >
+            BatLaunch
+          </a>
         </div>
       </div>
     </footer>
