@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, Shield, Clock, Star, Droplets, Wrench, Flame, ShowerHead, PipetteIcon, Zap, MapPin } from "lucide-react";
-import { allPhotos, getPhotoUrl } from "@/data/photos";
+import { Phone, Shield, Clock, Star, Wrench, MapPin } from "lucide-react";
+import { allPhotos } from "@/data/photos";
+import { servicePages } from "@/data/servicePages";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
 import beforeCleaning from "@/assets/before-cleaning.jpeg";
@@ -40,31 +41,6 @@ const cityRegions = [
       "San Diego Country Estates", "Spring Valley", "Tecate Area (US side)",
     ],
   },
-  {
-    name: "Inland / Temecula Valley",
-    anchor: "inland-empire-temecula",
-    cities: [
-      "Hemet", "Lake Elsinore", "Menifee", "Moreno Valley", "Murrieta",
-      "Perris", "San Jacinto", "Sun City", "Temecula", "Wildomar", "Winchester",
-    ],
-  },
-  {
-    name: "Orange County (South)",
-    anchor: "south-orange-county",
-    cities: [
-      "Dana Point", "Laguna Beach", "Laguna Hills", "Laguna Niguel", "Mission Viejo",
-      "San Clemente", "San Juan Capistrano",
-    ],
-  },
-];
-
-const services = [
-  { icon: Droplets, title: "Drain Cleaning", desc: "Hydro jetting and drain clearing for stubborn clogs and buildups." },
-  { icon: Flame, title: "Water Heaters", desc: "Installation, repair, and replacement of all water heater types." },
-  { icon: Wrench, title: "Leak Detection", desc: "Advanced camera and line locating technology to find hidden leaks." },
-  { icon: ShowerHead, title: "Bathtub & Faucet", desc: "Installation and repair of bathtubs, showers, and faucets." },
-  { icon: PipetteIcon, title: "Sewer Liners", desc: "Trenchless sewer liner repairs — full liners and sectional liners." },
-  { icon: Zap, title: "Backflow Testing", desc: "Certified backflow prevention testing and device installation." },
 ];
 
 export default function HomePage() {
@@ -83,8 +59,10 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden md:min-h-[600px]">
         <img
-          src={getPhotoUrl("xotUmIw4oPCgxALWxykLaQ", "o")}
-          alt="NTP Plumbing work"
+          src="/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.webp"
+          alt="NTP Plumbing technician completing a 24/7 emergency plumbing job in Greater San Diego, CA"
+          width={750}
+          height={1000}
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
         />
@@ -94,7 +72,7 @@ export default function HomePage() {
             24/7 Plumber in Greater San Diego, CA
           </h1>
           <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[#e8a020] md:text-3xl lg:text-4xl">
-            Proudly Serving Greater San Diego &amp; All of Southern California
+            Fast, 5-Star Rated &amp; Always On Call
             <span className="mx-auto mt-2 block h-0.5 w-16 animate-[fade-in_0.5s_ease-out_0.2s_both] rounded-full bg-[#e8a020]" />
           </h2>
           <p className="mx-auto mb-8 max-w-xl text-lg text-primary-foreground/80">
@@ -138,12 +116,16 @@ export default function HomePage() {
             <p className="text-muted-foreground">Comprehensive plumbing solutions for residential and commercial properties</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <div key={s.title} className="service-card-hover rounded-xl border bg-card p-6">
+            {servicePages.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/services/${s.slug}`}
+                className="service-card-hover rounded-xl border bg-card p-6"
+              >
                 <s.icon className="mb-3 h-8 w-8 text-primary" />
-                <h3 className="mb-1 text-lg font-semibold">{s.title}</h3>
-                <p className="text-sm text-muted-foreground">{s.desc}</p>
-              </div>
+                <h3 className="mb-1 text-lg font-semibold">{s.navTitle}</h3>
+                <p className="text-sm text-muted-foreground">{s.cardDesc}</p>
+              </Link>
             ))}
           </div>
           <div className="mt-8 text-center">
@@ -205,7 +187,7 @@ export default function HomePage() {
             <div className="text-white">
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">Get In Touch</h2>
               <p className="mb-8 max-w-md text-white/80">
-                Available 24 hours a day, 7 days a week — including holidays. No overtime fees, no trip charges. Just fast, reliable plumbing service across Greater San Diego and Southern California.
+                Available 24 hours a day, 7 days a week — including holidays. No overtime fees, no trip charges. Just fast, reliable plumbing service across Greater San Diego.
               </p>
 
               <a href="tel:+16195507371" className="mb-2 inline-block text-4xl font-extrabold text-[#e8a020] transition-opacity hover:opacity-90 md:text-5xl">
@@ -252,10 +234,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-2 flex items-center justify-center gap-2">
             <MapPin className="h-6 w-6 text-[#1a3a5c]" />
-            <h2 className="text-center text-3xl font-bold text-[#1a3a5c]">Cities We Serve Across Southern California</h2>
+            <h2 className="text-center text-3xl font-bold text-[#1a3a5c]">Cities We Serve Across Greater San Diego</h2>
           </div>
           <p className="mx-auto mb-10 max-w-3xl text-center text-muted-foreground">
-            NTP Plumbing provides 24/7 plumbing services to homeowners and businesses throughout Greater San Diego and surrounding Southern California communities. If you don't see your city listed, call us — we likely serve your area.
+            NTP Plumbing provides 24/7 plumbing services to homeowners and businesses throughout Greater San Diego, CA. If you don't see your city listed, call us — we likely serve your area.
           </p>
 
           {cityRegions.map((region) => (

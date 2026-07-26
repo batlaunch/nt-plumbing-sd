@@ -9,6 +9,7 @@ const navLinks = [
   { to: "/services", label: "Services" },
   { to: "/gallery", label: "Gallery" },
   { to: "/reviews", label: "Reviews" },
+  { to: "/blog", label: "Blog" },
   { to: "/service-area", label: "Service Area" },
 ];
 
@@ -27,12 +28,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-md px-2.5 py-2 text-sm font-medium transition-colors ${
                 location.pathname === l.to
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:text-foreground"
@@ -43,7 +44,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a href="tel:+16195507371">
             <Button size="sm" className="gap-2">
               <Phone className="h-4 w-4" /> (619) 550-7371
@@ -52,14 +53,14 @@ export default function Header() {
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t bg-card px-4 pb-4 md:hidden">
+        <div className="border-t bg-card px-4 pb-4 lg:hidden">
           <nav className="flex flex-col gap-1 pt-2">
             {navLinks.map((l) => (
               <Link

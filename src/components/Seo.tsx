@@ -8,7 +8,7 @@ interface SeoProps {
 }
 
 const SITE_URL = "https://ntpplumbing.com";
-const DEFAULT_OG_IMAGE = "https://s3-media0.fl.yelpcdn.com/bphoto/xotUmIw4oPCgxALWxykLaQ/o.jpg";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.jpg`;
 
 export default function Seo({ title, description, path, ogImage = DEFAULT_OG_IMAGE }: SeoProps) {
   const url = `${SITE_URL}${path}`;
