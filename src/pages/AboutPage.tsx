@@ -1,7 +1,4 @@
-import { allPhotos } from "@/data/photos";
-
-const workPhoto1 = allPhotos.find((p) => p.id === "fLKMy8MJF_wGnLIodG377g")!;
-const workPhoto2 = allPhotos.find((p) => p.id === "3GsposTukR3DamGOb5_YAQ")!;
+import { getPhotoUrl } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
 
@@ -16,10 +13,8 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative flex min-h-[300px] items-center justify-center overflow-hidden">
         <img
-          src="/images/gallery/4dR7TDBrMzHypMEX7B962g-o.webp"
-          alt="NTP Plumbing owner-operator on a plumbing job in El Cajon, CA"
-          width={750}
-          height={1000}
+          src={getPhotoUrl("4dR7TDBrMzHypMEX7B962g", "o")}
+          alt="NTP Plumbing team"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="hero-overlay absolute inset-0" />
@@ -57,18 +52,14 @@ export default function AboutPage() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <img
-              src={workPhoto1.url}
-              alt={workPhoto1.alt}
-              width={workPhoto1.width}
-              height={workPhoto1.height}
+              src={getPhotoUrl("fLKMy8MJF_wGnLIodG377g", "l")}
+              alt="NTP plumbing work example"
               className="rounded-xl object-cover w-full h-64"
               loading="lazy"
             />
             <img
-              src={workPhoto2.url}
-              alt={workPhoto2.alt}
-              width={workPhoto2.width}
-              height={workPhoto2.height}
+              src={getPhotoUrl("3GsposTukR3DamGOb5_YAQ", "l")}
+              alt="NTP plumbing work example"
               className="rounded-xl object-cover w-full h-64"
               loading="lazy"
             />

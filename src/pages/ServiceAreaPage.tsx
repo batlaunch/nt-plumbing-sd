@@ -3,19 +3,20 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Star, Shield, MapPin, Wrench } from "lucide-react";
-import Seo from "@/components/Seo";
 
 const REGION_ANCHORS: Record<string, string> = {
   "San Diego Core": "san-diego-core",
   "North County San Diego": "north-county",
   "South Bay & East County": "south-bay-east-county",
+  "Inland Empire / Temecula Valley": "inland-empire-temecula",
+  "South Orange County": "south-orange-county",
 };
 
 const GOOGLE_MAPS_API_KEY = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined) ?? "";
 
 const SD_CENTER = { lat: 32.7157, lng: -117.1611 };
 const BORDER_LAT = 32.5343;
-const RADIUS_MILES = 45;
+const RADIUS_MILES = 80;
 
 function buildServiceAreaPolygon() {
   const points: { lat: number; lng: number }[] = [];
@@ -191,6 +192,38 @@ const regions = [
       ["Spring Valley", "91977, 91978, 91979"],
     ],
   },
+  {
+    name: "Inland Empire / Temecula Valley",
+    description:
+      "Our service area extends north into the Temecula Valley and Inland Empire — one of Southern California's fastest-growing regions. Whether you're in a new build in Murrieta or an established neighborhood in Hemet, NTP is there.",
+    cities: [
+      ["Hemet", "92543, 92544, 92545"],
+      ["Lake Elsinore", "92530, 92531, 92532"],
+      ["Menifee", "92584, 92585, 92586"],
+      ["Moreno Valley", "92551, 92552, 92553, 92555, 92557"],
+      ["Murrieta", "92562, 92563"],
+      ["Perris", "92570, 92571"],
+      ["San Jacinto", "92581, 92582, 92583"],
+      ["Sun City / Menifee", "92585, 92586"],
+      ["Temecula", "92590, 92591, 92592"],
+      ["Wildomar", "92595"],
+      ["Winchester", "92596"],
+    ],
+  },
+  {
+    name: "South Orange County",
+    description:
+      "NTP Plumbing serves select South Orange County communities just north of San Diego County, including the coastal cities of San Clemente, Dana Point, and Laguna Niguel.",
+    cities: [
+      ["Dana Point", "92629"],
+      ["Laguna Beach", "92651, 92652, 92653"],
+      ["Laguna Hills", "92653, 92654"],
+      ["Laguna Niguel", "92677"],
+      ["Mission Viejo", "92691, 92692"],
+      ["San Clemente", "92672, 92673, 92674"],
+      ["San Juan Capistrano", "92675"],
+    ],
+  },
 ];
 
 const whyCards = [
@@ -203,7 +236,7 @@ const whyCards = [
 ];
 
 const citiesForSchema = [
-  "San Diego","Chula Vista","El Cajon","La Mesa","National City","Santee","Lemon Grove","Imperial Beach","La Jolla","Oceanside","Carlsbad","Escondido","Vista","San Marcos","Encinitas","Poway","Del Mar","Solana Beach","Spring Valley","Lakeside","Alpine","Fallbrook","Ramona",
+  "San Diego","Chula Vista","El Cajon","La Mesa","National City","Santee","Lemon Grove","Imperial Beach","La Jolla","Oceanside","Carlsbad","Escondido","Vista","San Marcos","Encinitas","Poway","Del Mar","Solana Beach","Spring Valley","Lakeside","Alpine","Temecula","Murrieta","Menifee","Lake Elsinore","Hemet","Fallbrook","Ramona","San Clemente","Dana Point",
 ];
 
 const jsonLd = {
@@ -213,7 +246,7 @@ const jsonLd = {
   url: "https://ntpplumbing.com",
   telephone: "(619) 550-7371",
   description:
-    "NTP Plumbing provides 24/7 professional plumbing services including drain cleaning, water heaters, hydro jetting, and leak detection throughout Greater San Diego, CA. 5-star rated on Yelp.",
+    "NTP Plumbing provides 24/7 professional plumbing services including drain cleaning, water heaters, hydro jetting, and leak detection throughout Greater San Diego and Southern California. 5-star rated on Yelp.",
   priceRange: "$$",
   openingHours: "Mo-Su 00:00-24:00",
   hasMap: "https://www.google.com/maps?q=NTP+Plumbing+San+Diego",
@@ -247,12 +280,13 @@ export default function ServiceAreaPage() {
 
   return (
     <>
-      <Seo
-        title="NTP Plumbing Service Area | Greater San Diego, CA"
-        description="NTP Plumbing serves all of Greater San Diego, CA. View our full list of cities, towns, and zip codes served. Available 24/7 for emergency plumbing."
-        path="/service-area"
-      />
       <Helmet>
+        <title>NTP Plumbing Service Area | Greater San Diego & Southern California</title>
+        <meta
+          name="description"
+          content="NTP Plumbing serves all of Greater San Diego and Southern California. View our full list of cities, towns, and zip codes served. Available 24/7 for emergency plumbing."
+        />
+        <link rel="canonical" href="https://ntpplumbing.com/service-area" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
@@ -263,10 +297,10 @@ export default function ServiceAreaPage() {
             NTP Plumbing Service Area
           </h1>
           <p className="mb-6 text-xl font-semibold text-[#e8a020] md:text-2xl">
-            Serving Greater San Diego, CA — 24/7
+            Serving Greater San Diego, Inland Empire, and Southern California — 24/7
           </p>
           <p className="mx-auto mb-8 max-w-2xl text-base text-white/85 md:text-lg">
-            Whether you're in coastal San Diego, the East County foothills, or anywhere in between, NTP Plumbing is ready to respond. We serve dozens of cities and hundreds of zip codes across San Diego County with the same fast, 5-star rated service our customers have come to count on.
+            Whether you're in coastal San Diego, the Temecula Valley, or anywhere in between, NTP Plumbing is ready to respond. We serve dozens of cities and hundreds of zip codes across Southern California with the same fast, 5-star rated service our customers have come to count on.
           </p>
           <a href="tel:+16195507371">
             <Button size="lg" className="gap-2 bg-[#e8a020] text-white shadow-lg hover:bg-[#e8a020]/90">
@@ -281,7 +315,7 @@ export default function ServiceAreaPage() {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-[#1a3a5c]">Our Full Service Area</h2>
           <p className="text-base text-[#2d2d2d] md:text-lg">
-            NTP Plumbing is based in Greater San Diego and has built a reputation as one of the region's most trusted plumbing companies. We proudly cover all of San Diego County — from the coast to the North County and East County communities. No matter where you are in Greater San Diego, our licensed, insured technicians can be at your door — day or night.
+            NTP Plumbing is based in Greater San Diego and has built a reputation as one of the region's most trusted plumbing companies. We've expanded our service area to cover all of San Diego County, the Temecula Valley, and parts of Orange County's South Bay. No matter where you are in Southern California, our licensed, insured technicians can be at your door — day or night.
           </p>
         </div>
       </section>
@@ -309,7 +343,7 @@ export default function ServiceAreaPage() {
       <section className="bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-3xl font-bold text-[#1a3a5c]">
-            Why Greater San Diego Chooses NTP Plumbing
+            Why Southern California Chooses NTP Plumbing
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {whyCards.map((c) => (
@@ -328,7 +362,7 @@ export default function ServiceAreaPage() {
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-3 text-3xl font-bold md:text-4xl">Ready to Book? We Serve Your Area.</h2>
           <p className="mb-8 text-white/85">
-            Call now or request service online. Available 24/7 across Greater San Diego.
+            Call now or request service online. Available 24/7 across Greater San Diego and Southern California.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a href="tel:+16195507371">

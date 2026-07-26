@@ -44,7 +44,6 @@ export default function Footer() {
             <nav className="flex flex-col gap-2 text-sm">
               <Link to="/" className="text-white/80 transition-colors hover:text-[#e8a020]">Home</Link>
               <a href="/#services" className="text-white/80 transition-colors hover:text-[#e8a020]">Services</a>
-              <Link to="/blog" className="text-white/80 transition-colors hover:text-[#e8a020]">Blog</Link>
               <Link to="/service-area" className="text-white/80 transition-colors hover:text-[#e8a020]">Service Area</Link>
             </nav>
           </div>
@@ -62,7 +61,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <MapPin className="h-4 w-4 shrink-0" />
-                <span>Serving Greater San Diego, CA</span>
+                <span>Serving Greater San Diego &amp; Southern California</span>
               </div>
               <p className="text-xs text-white/50">No overtime fees. No trip charges.</p>
             </div>
@@ -73,15 +72,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 bg-[#142d48]">
         <div className="mx-auto max-w-7xl px-4 py-4 text-center text-xs text-white/50">
-          © 2025 NTP Plumbing. All Rights Reserved. | Serving Greater San Diego, CA | Website by{" "}
-          <a
-            href="https://batlaunch.com"
-            target="_blank"
-            rel="noopener"
-            className="text-white/70 transition-colors hover:text-[#e8a020]"
-          >
-            BatLaunch
-          </a>
+          © 2025 NTP Plumbing. All Rights Reserved. | Serving Greater San Diego &amp; Southern California
         </div>
       </div>
     </footer>
