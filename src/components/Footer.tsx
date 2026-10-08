@@ -115,7 +115,7 @@ export default function Footer() {
           <p>{NAP_LINE}</p>
           <p>
             © {new Date().getFullYear()} {BUSINESS.legalName}. All rights reserved. | Website by{" "}
-            <a href="https://batlaunch.com" target="_blank" rel="noopener" className="text-white/80 transition-colors hover:text-[#e8a020]">
+            <a href="https://batlaunch.com" target="_blank" rel="noopener" className="text-white/80 underline transition-colors hover:text-[#e8a020]">
               BatLaunch
             </a>
           </p>

@@ -16,6 +16,7 @@
 // an unrendered shell is exactly the bug that went unnoticed in production.
 
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -87,6 +88,10 @@ function checkLinks(route, page) {
     const target = routeByPath.get(href);
     if (!target) (LINKS_STRICT ? problems : warnings).push(`${route.path}: broken internal link -> ${href}`);
     else if (route.published && !target.published) problems.push(`${route.path}: links to draft page ${href}`);
+  }
+  // Every referenced local image (img src/srcset, og:image, JSON-LD) must exist.
+  for (const [, img] of page.matchAll(/(?:ntpplumbing\.com|["\s,])(\/images\/[^"\s,?]+)/g)) {
+    if (!existsSync(path.join(DIST, img))) problems.push(`${route.path}: missing image ${img}`);
   }
 }
 

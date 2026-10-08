@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { SITE_URL } from "@/lib/business";
+import { OG_IMAGE } from "@/data/photos";
 
 interface SeoProps {
   title: string;
@@ -11,7 +12,7 @@ interface SeoProps {
   noindex?: boolean;
 }
 
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.jpg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}${OG_IMAGE}`;
 
 export default function Seo({ title, description, path, ogImage = DEFAULT_OG_IMAGE, ogType = "website", noindex = false }: SeoProps) {
   const url = `${SITE_URL}${path}`;

@@ -2,6 +2,8 @@
 // generated from the original uploads. File names and alt text describe what
 // each photo actually shows. Every photo has three sizes:
 //   <slug>.webp (<=1200px), <slug>-640w.webp, <slug>-thumb.webp (300x300).
+// Photos used as page heroes also have <slug>-hero.webp: lightly blurred and
+// heavily compressed, since heroes sit under a dark overlay (keeps LCP fast).
 
 export interface Photo {
   id: string;
@@ -13,6 +15,8 @@ export interface Photo {
   url: string;
   url640: string;
   thumbnail: string;
+  /** Only exists for photos used with <HeroImage>. */
+  hero: string;
 }
 
 const photo = (id: string, category: string, alt: string, width: number, height: number): Photo => ({
@@ -24,6 +28,7 @@ const photo = (id: string, category: string, alt: string, width: number, height:
   url: `/images/gallery/${id}.webp`,
   url640: `/images/gallery/${id}-640w.webp`,
   thumbnail: `/images/gallery/${id}-thumb.webp`,
+  hero: `/images/gallery/${id}-hero.webp`,
 });
 
 export const allPhotos: Photo[] = [

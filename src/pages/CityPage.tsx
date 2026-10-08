@@ -47,7 +47,7 @@ export default function CityPage({ page }: { page: CityPageData }) {
           <p className="mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-[#e8a020]">
             <MapPin className="h-4 w-4" aria-hidden="true" /> Serving {page.city} from El Cajon
           </p>
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl">Plumber in {page.city}, CA</h1>
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl">{`Plumber in ${page.city}, CA`}</h1>
           <p className="mb-8 text-lg text-white/85">{page.heroSubtitle}</p>
           <a href={BUSINESS.phoneHref}>
             <Button size="lg" className="gap-2 bg-[#e8a020] text-white shadow-lg hover:bg-[#e8a020]/90">

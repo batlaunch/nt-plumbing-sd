@@ -2,14 +2,13 @@ import type { Photo } from "@/data/photos";
 
 /**
  * Full-bleed, above-the-fold background photo: loads eagerly at high priority
- * (it's the LCP element) with a 640w variant for phones.
+ * (it's the LCP element). Uses the compressed -hero.webp variant, which is
+ * fine under the dark overlay and much lighter than the full-size photo.
  */
 export default function HeroImage({ photo }: { photo: Photo }) {
   return (
     <img
-      src={photo.url}
-      srcSet={`${photo.url640} 640w, ${photo.url} ${photo.width}w`}
-      sizes="100vw"
+      src={photo.hero}
       alt={photo.alt}
       width={photo.width}
       height={photo.height}
