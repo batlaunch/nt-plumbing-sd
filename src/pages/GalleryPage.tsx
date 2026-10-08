@@ -2,6 +2,7 @@ import { useState } from "react";
 import { allPhotos } from "@/data/photos";
 import { X } from "lucide-react";
 import Seo from "@/components/Seo";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 
 export default function GalleryPage() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
@@ -9,15 +10,19 @@ export default function GalleryPage() {
   return (
     <>
       <Seo
-        title="Plumbing Work Photo Gallery | NTP Plumbing San Diego"
-        description="Browse photos of NTP Plumbing's recent jobs across Greater San Diego — drain cleaning, water heaters, hydro jetting, sewer liner repairs, and more."
+        title="Plumbing Project Photos | NTP Plumbing El Cajon"
+        description="Photos of NTP Plumbing jobs in East County San Diego: sewer line replacements, water heater installs, shower valves, repipes, and more."
         path="/gallery"
       />
+      <PageBreadcrumb trail={[{ name: "Gallery", path: "/gallery" }]} className="max-w-6xl" />
       <section className="section-padding">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
-            <h1 className="mb-2 text-4xl font-bold">NTP Plumbing Photo Gallery</h1>
-            <p className="text-muted-foreground">A look at our previous plumbing work across San Diego</p>
+            <h1 className="mb-2 text-4xl font-bold">Plumbing Project Photos</h1>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Real jobs by NTP Plumbing: sewer line replacements and new cleanouts, water heater installations, shower
+              valves and tubs, repipes, and drain repairs. Every photo is our own work, not stock imagery.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -25,11 +30,14 @@ export default function GalleryPage() {
               <button
                 key={photo.id}
                 onClick={() => setSelectedIdx(idx)}
+                aria-label={`View photo: ${photo.alt}`}
                 className="group relative aspect-square overflow-hidden rounded-lg"
               >
                 <img
                   src={photo.thumbnail}
                   alt={photo.alt}
+                  width={300}
+                  height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -56,6 +64,8 @@ export default function GalleryPage() {
           <img
             src={allPhotos[selectedIdx].url}
             alt={allPhotos[selectedIdx].alt}
+            width={allPhotos[selectedIdx].width}
+            height={allPhotos[selectedIdx].height}
             className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
             onClick={(e) => e.stopPropagation()}
           />

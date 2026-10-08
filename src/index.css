@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Arial sized to Inter's metrics, so text doesn't reflow (CLS) when the
+   Inter web font finishes loading. Override values match next/font's. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  ascent-override: 90.49%;
+  descent-override: 22.56%;
+  line-gap-override: 0%;
+  size-adjust: 107.06%;
+}
+
 @layer base {
   :root {
     --background: 210 20% 98%;
@@ -13,14 +24,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    --primary: 210 80% 45%;
+    --primary: 210 80% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 15% 93%;
     --secondary-foreground: 215 25% 15%;
 
     --muted: 210 15% 95%;
-    --muted-foreground: 215 10% 45%;
+    --muted-foreground: 215 12% 38%;
 
     --accent: 35 95% 55%;
     --accent-foreground: 0 0% 100%;
@@ -30,7 +41,7 @@
 
     --border: 210 20% 90%;
     --input: 210 20% 90%;
-    --ring: 210 80% 45%;
+    --ring: 210 80% 40%;
 
     --radius: 0.5rem;
 
@@ -84,11 +95,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
     @apply font-bold tracking-tight;
   }
 }

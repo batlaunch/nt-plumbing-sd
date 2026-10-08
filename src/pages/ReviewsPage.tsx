@@ -1,7 +1,9 @@
-import { Helmet } from "react-helmet-async";
 import { Star } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
+import { Todo } from "@/components/RichText";
+import { BUSINESS } from "@/lib/business";
 
 const reviews = [
   {
@@ -69,63 +71,51 @@ const reviews = [
   },
 ];
 
-const reviewsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Plumber",
-  name: "NTP Plumbing",
-  url: "https://ntpplumbing.com",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: String(reviews.length),
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: reviews.map((r) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: r.name },
-    datePublished: r.dateISO,
-    reviewBody: r.text,
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: "5",
-      bestRating: "5",
-      worstRating: "1",
-    },
-  })),
-};
+// No Review/AggregateRating structured data here: these reviews are copied from
+// Yelp, and Google's review-snippet guidelines disallow marking up reviews
+// sourced from another site (and self-serving LocalBusiness reviews aren't
+// eligible for stars anyway). Linking to the Yelp profile is the safe signal.
 
 export default function ReviewsPage() {
   return (
     <>
       <Seo
-        title="NTP Plumbing Reviews | 5-Star Plumber in San Diego, CA"
-        description="Read 5-star Yelp reviews for NTP Plumbing from customers across El Cajon, La Mesa, Lakeside, Escondido, and Greater San Diego."
+        title="NTP Plumbing Reviews | El Cajon Plumber"
+        description="Read NTP Plumbing reviews from customers in El Cajon, La Mesa, Lakeside, Spring Valley and across East County San Diego. 5.0 stars on Yelp."
         path="/reviews"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(reviewsJsonLd)}</script>
-      </Helmet>
+      <PageBreadcrumb trail={[{ name: "Reviews", path: "/reviews" }]} />
       <section className="section-padding">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
-            <div className="mb-3 flex items-center justify-center gap-1">
+            <div className="mb-3 flex items-center justify-center gap-1" aria-hidden="true">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-6 w-6 fill-accent text-accent" />
               ))}
             </div>
-            <h1 className="mb-2 text-4xl font-bold">NTP Plumbing Customer Reviews</h1>
-            <p className="text-muted-foreground">
-              5.0-star rating based on 9 Yelp reviews
-            </p>
+            <h1 className="mb-2 text-4xl font-bold">NTP Plumbing Reviews</h1>
+            <p className="text-muted-foreground">5.0-star rating on Yelp</p>
             <a
-              href="https://www.yelp.com/biz/ntp-el-cajon-4?osq=NTP"
+              href={BUSINESS.yelpUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block text-sm text-primary hover:underline"
             >
-              View all reviews on Yelp →
+              Read all NTP Plumbing reviews on Yelp →
             </a>
+          </div>
+
+          <div className="prose prose-slate mx-auto mb-10 max-w-3xl">
+            <p>
+              These NTP Plumbing reviews come from customers across El Cajon and East County San Diego, from La Mesa and
+              Lakeside to Spring Valley. Most describe the same kinds of jobs: a main line backing up into the shower, a
+              kitchen sink that wouldn't drain, a water heater that quit. And most mention the same things: we came out the
+              same day or within the hour, explained the problem, quoted a fair price, and made sure the fix held before
+              leaving.
+            </p>
+            <p>
+              Had work done by NTP? <Todo>link to the Google Business Profile "write a review" URL</Todo>
+            </p>
           </div>
 
           <div className="space-y-6">
