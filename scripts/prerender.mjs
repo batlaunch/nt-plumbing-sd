@@ -71,11 +71,30 @@ function check(route, page) {
   }
 }
 
-// --- Render ---------------------------------------------------------------
+// --- Internal links ---------------------------------------------------------
+// Every internal href must resolve to a route, and published pages must never
+// link to drafts (published: false).
+const LINKS_STRICT = false; // flip once forward links to upcoming pages resolve
 const routes = getSiteRoutes();
+const routeByPath = new Map(routes.map((r) => [r.path, r]));
+const STATIC_FILES = /\.(xml|txt|png|jpe?g|webp|svg|ico|css|js)$/;
+
+function checkLinks(route, page) {
+  const body = page.slice(page.indexOf('<div id="root">'));
+  for (const [, raw] of body.matchAll(/href="(\/[^"#?]*)/g)) {
+    const href = raw.length > 1 ? raw.replace(/\/$/, "") : raw;
+    if (STATIC_FILES.test(href)) continue;
+    const target = routeByPath.get(href);
+    if (!target) (LINKS_STRICT ? problems : warnings).push(`${route.path}: broken internal link -> ${href}`);
+    else if (route.published && !target.published) problems.push(`${route.path}: links to draft page ${href}`);
+  }
+}
+
+// --- Render ---------------------------------------------------------------
 for (const route of routes) {
   const page = renderPage(route.path);
   check(route.path, page);
+  checkLinks(route, page);
   const outDir = route.path === "/" ? DIST : path.join(DIST, route.path.slice(1));
   await mkdir(outDir, { recursive: true });
   await writeFile(path.join(outDir, "index.html"), page);

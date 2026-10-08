@@ -71,11 +71,26 @@ export default function RichText({ source }: { source: string }) {
             </ul>
           );
         }
-        if (lines.every((l) => /^\d+\.\s/.test(l))) {
+        if (/^\d+\.\s/.test(lines[0]) && lines.every((l) => /^\d+\.\s/.test(l) || l.startsWith("- "))) {
+          // Numbered list; "- " lines nest under the preceding item.
+          const items: { text: string; sub: string[] }[] = [];
+          for (const l of lines) {
+            if (l.startsWith("- ")) items[items.length - 1].sub.push(l.slice(2));
+            else items.push({ text: l.replace(/^\d+\.\s/, ""), sub: [] });
+          }
           return (
             <ol key={i}>
-              {lines.map((l, j) => (
-                <li key={j}><Inline text={l.replace(/^\d+\.\s/, "")} /></li>
+              {items.map((item, j) => (
+                <li key={j}>
+                  <Inline text={item.text} />
+                  {item.sub.length > 0 && (
+                    <ul>
+                      {item.sub.map((s, k) => (
+                        <li key={k}><Inline text={s} /></li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
               ))}
             </ol>
           );
