@@ -74,8 +74,9 @@ export default function AboutPage() {
           <h2>What we do</h2>
           <p>We're a full-service residential and commercial plumbing company. Most of our work falls into a few areas:</p>
           <ul>
+            <li><Link to="/services/emergency-plumber">24/7 emergency plumbing</Link>: burst pipes, sewer backups, leaking water heaters</li>
             <li><Link to="/services/drain-cleaning-hydro-jetting">Drain cleaning and hydro jetting</Link>, from kitchen sinks to main sewer lines</li>
-            <li><Link to="/services/water-heater-repair">Water heater repair and replacement</Link>, gas and electric</li>
+            <li><Link to="/services/water-heater-repair">Water heater repair and replacement</Link>, gas and electric, plus <Link to="/services/tankless-water-heaters">tankless installation</Link></li>
             <li><Link to="/services/leak-detection">Leak detection and slab leak repair</Link></li>
             <li><Link to="/services/sewer-line-repair">Sewer line repair and replacement</Link>, including camera inspection and trenchless liners</li>
             <li><Link to="/services/fixture-installation-repair">Faucet, toilet, shower valve, tub and garbage disposal work</Link></li>

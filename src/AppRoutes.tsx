@@ -11,6 +11,8 @@ import ServiceAreaPage from "@/pages/ServiceAreaPage";
 import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
 import NotFound from "@/pages/NotFound";
+import CityPage from "@/pages/CityPage";
+import { cityPages } from "@/data/cityPages";
 
 // Shared by the browser entry (BrowserRouter) and the build-time prerenderer
 // (StaticRouter) so both render the exact same tree.
@@ -28,6 +30,9 @@ export default function AppRoutes() {
         <Route path="/service-area" element={<ServiceAreaPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        {cityPages.map((c) => (
+          <Route key={c.slug} path={`/${c.slug}`} element={<CityPage page={c} />} />
+        ))}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -177,7 +177,8 @@ export default function HomePage() {
             </li>
           </ul>
           <p>
-            Then call <a href={BUSINESS.phoneHref}>{BUSINESS.phoneDisplay}</a>.
+            Then call <a href={BUSINESS.phoneHref}>{BUSINESS.phoneDisplay}</a>. More on what to do, and what counts as an
+            emergency: <Link to="/services/emergency-plumber">24/7 emergency plumber in El Cajon</Link>.
           </p>
         </div>
       </section>

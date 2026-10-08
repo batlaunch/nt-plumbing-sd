@@ -2,6 +2,7 @@
 // pages and blog posts are prerendered and added to sitemap.xml automatically.
 import { servicePages } from "@/data/servicePages";
 import { blogPosts } from "@/data/blog";
+import { cityPages } from "@/data/cityPages";
 
 export interface SiteRoute {
   path: string;
@@ -40,6 +41,13 @@ export function getSiteRoutes(): SiteRoute[] {
       changefreq: "monthly" as const,
       priority: 0.8,
       published: s.published,
+    })),
+    ...cityPages.map((c) => ({
+      path: `/${c.slug}`,
+      lastmod: c.lastmod,
+      changefreq: "monthly" as const,
+      priority: 0.7,
+      published: c.published,
     })),
     ...blogPosts.map((p) => ({
       path: `/blog/${p.meta.slug}`,
