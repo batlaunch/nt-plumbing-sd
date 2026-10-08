@@ -15,51 +15,23 @@
     gtag('config', 'G-M5FWP4YX6S');
   }
 </script>
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Title, description, and OG/Twitter tags are set per-route by <Seo /> (src/components/Seo.tsx)
-         via react-helmet-async. Do not hardcode them here — Helmet cannot remove or replace
-         static tags it didn't create, so duplicates would appear alongside the real per-page ones. -->
-    <title>24/7 Plumber in Greater San Diego, CA</title>
-    <meta name="author" content="NTP" />
+    <!-- Title, description, canonical, OG tags and JSON-LD are all per-route, emitted by
+         react-helmet-async and baked into each page's HTML at build time by
+         scripts/prerender.mjs. Don't hardcode any of them here — static copies would
+         duplicate the per-page ones. -->
+    <!--app-head-->
 
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Plumber",
-      "name": "NTP",
-      "image": "https://ntpplumbing.com/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "El Cajon",
-        "addressRegion": "CA",
-        "addressCountry": "US"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "9"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "priceRange": "$$",
-      "areaServed": "Greater San Diego, CA"
-    }
-    </script>
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

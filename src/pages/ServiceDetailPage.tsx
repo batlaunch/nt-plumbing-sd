@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Phone, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
+import NotFound from "@/pages/NotFound";
 import { getServicePage, servicePages } from "@/data/servicePages";
 
 const SITE_URL = "https://ntpplumbing.com";
@@ -21,7 +22,7 @@ export default function ServiceDetailPage() {
   const service = slug ? getServicePage(slug) : undefined;
 
   if (!service) {
-    return <Navigate to="/services" replace />;
+    return <NotFound />;
   }
 
   const path = `/services/${service.slug}`;

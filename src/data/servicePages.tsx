@@ -2,6 +2,10 @@ import { Droplets, Flame, Search, ShowerHead, CircleDot, Zap, type LucideIcon } 
 
 export interface ServicePageData {
   slug: string;
+  /** false = awaiting client confirmation that NTP offers this; noindex + hidden from nav/sitemap. */
+  published: boolean;
+  /** YYYY-MM-DD, used for sitemap lastmod. */
+  lastmod: string;
   icon: LucideIcon;
   navTitle: string;
   cardDesc: string;
@@ -19,6 +23,8 @@ export interface ServicePageData {
 export const servicePages: ServicePageData[] = [
   {
     slug: "drain-cleaning-hydro-jetting",
+    published: true,
+    lastmod: "2026-07-24",
     icon: Droplets,
     navTitle: "Drain Cleaning & Hydro Jetting",
     cardDesc: "Hydro jetting and drain clearing for stubborn clogs and buildups.",
@@ -54,6 +60,8 @@ export const servicePages: ServicePageData[] = [
   },
   {
     slug: "water-heater-repair",
+    published: true,
+    lastmod: "2026-07-24",
     icon: Flame,
     navTitle: "Water Heater Installation & Repair",
     cardDesc: "Installation, repair, and replacement of all water heater types.",
@@ -91,6 +99,8 @@ export const servicePages: ServicePageData[] = [
   },
   {
     slug: "leak-detection",
+    published: true,
+    lastmod: "2026-07-24",
     icon: Search,
     navTitle: "Leak Detection",
     cardDesc: "Advanced camera and line locating technology to find hidden leaks.",
@@ -127,6 +137,8 @@ export const servicePages: ServicePageData[] = [
   },
   {
     slug: "fixture-installation-repair",
+    published: true,
+    lastmod: "2026-07-24",
     icon: ShowerHead,
     navTitle: "Fixture Installation & Repair",
     cardDesc: "Installation and repair of bathtubs, faucets, and garbage disposals.",
@@ -162,6 +174,8 @@ export const servicePages: ServicePageData[] = [
   },
   {
     slug: "sewer-line-repair",
+    published: true,
+    lastmod: "2026-07-24",
     icon: CircleDot,
     navTitle: "Sewer Line Repair & Camera Inspection",
     cardDesc: "Trenchless sewer liner repairs — full liners and sectional liners.",
@@ -198,6 +212,8 @@ export const servicePages: ServicePageData[] = [
   },
   {
     slug: "backflow-testing",
+    published: true,
+    lastmod: "2026-07-24",
     icon: Zap,
     navTitle: "Backflow Testing",
     cardDesc: "Certified backflow prevention testing and device installation.",

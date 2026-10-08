@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 import {
   Breadcrumb,
@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
+import NotFound from "@/pages/NotFound";
 import { getBlogPost } from "@/data/blog";
 import { getServicePage } from "@/data/servicePages";
 
@@ -21,7 +22,7 @@ export default function BlogPostPage() {
   const post = slug ? getBlogPost(slug) : undefined;
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <NotFound />;
   }
 
   const { meta, Content } = post;

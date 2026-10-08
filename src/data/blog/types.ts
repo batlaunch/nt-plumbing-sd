@@ -6,6 +6,8 @@ export interface BlogPostMeta {
   excerpt: string;
   date: string;
   dateISO: string;
+  /** YYYY-MM-DD; defaults to dateISO. */
+  dateModified?: string;
   author: string;
   readTime: string;
   category: string;
