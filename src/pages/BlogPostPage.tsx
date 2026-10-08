@@ -1,21 +1,13 @@
-import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { CalendarDays, Clock, ArrowRight } from "lucide-react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import CTABanner from "@/components/CTABanner";
+import JsonLd from "@/components/JsonLd";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import Seo from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
 import { getBlogPost } from "@/data/blog";
 import { getServicePage } from "@/data/servicePages";
-
-const SITE_URL = "https://ntpplumbing.com";
+import { blogPostingSchema } from "@/lib/schema";
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -29,58 +21,19 @@ export default function BlogPostPage() {
   const path = `/blog/${meta.slug}`;
   const relatedService = meta.relatedServiceSlug ? getServicePage(meta.relatedServiceSlug) : undefined;
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: meta.title,
-    description: meta.seoDescription,
-    datePublished: meta.dateISO,
-    dateModified: meta.dateISO,
-    author: { "@type": "Organization", name: meta.author },
-    publisher: { "@type": "Organization", name: "NTP Plumbing", url: SITE_URL },
-    url: `${SITE_URL}${path}`,
-    mainEntityOfPage: `${SITE_URL}${path}`,
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
-      { "@type": "ListItem", position: 3, name: meta.title, item: `${SITE_URL}${path}` },
-    ],
-  };
-
   return (
     <>
-      <Seo title={meta.seoTitle} description={meta.seoDescription} path={path} />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
-      </Helmet>
-
-      <section className="border-b bg-muted/40 px-4 py-3">
-        <Breadcrumb className="mx-auto max-w-3xl">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/blog">Blog</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{meta.title}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </section>
+      <Seo title={meta.seoTitle} description={meta.seoDescription} path={path} ogType="article" />
+      <JsonLd
+        data={blogPostingSchema({
+          title: meta.title,
+          description: meta.seoDescription,
+          path,
+          datePublished: meta.dateISO,
+          dateModified: meta.dateModified ?? meta.dateISO,
+        })}
+      />
+      <PageBreadcrumb trail={[{ name: "Blog", path: "/blog" }, { name: meta.title, path }]} className="max-w-3xl" />
 
       <article className="section-padding">
         <div className="mx-auto max-w-3xl">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X, Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BUSINESS } from "@/lib/business";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -11,6 +12,7 @@ const navLinks = [
   { to: "/reviews", label: "Reviews" },
   { to: "/blog", label: "Blog" },
   { to: "/service-area", label: "Service Area" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -20,11 +22,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2" aria-label="NTP Plumbing home">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Droplets className="h-6 w-6" />
           </div>
-          <span className="text-xl font-bold text-foreground">NTP</span>
+          <span className="text-lg font-bold text-foreground max-[399px]:sr-only sm:text-xl">NTP Plumbing</span>
         </Link>
 
         {/* Desktop nav */}
@@ -45,17 +47,26 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="tel:+16195507371">
+          <a href={BUSINESS.phoneHref}>
             <Button size="sm" className="gap-2">
-              <Phone className="h-4 w-4" /> (619) 550-7371
+              <Phone className="h-4 w-4" /> {BUSINESS.phoneDisplay}
             </Button>
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile: click-to-call always visible next to the menu toggle */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href={BUSINESS.phoneHref}
+            className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground"
+          >
+            <Phone className="h-4 w-4" aria-hidden="true" />
+            <span>{BUSINESS.phoneDisplay}</span>
+          </a>
+          <button className="p-1" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -78,9 +89,9 @@ export default function Header() {
             ))}
           </nav>
           <div className="mt-3 flex flex-col gap-2">
-            <a href="tel:+16195507371">
+            <a href={BUSINESS.phoneHref}>
               <Button className="w-full gap-2" size="sm">
-                <Phone className="h-4 w-4" /> Call (619) 550-7371
+                <Phone className="h-4 w-4" /> Call {BUSINESS.phoneDisplay}
               </Button>
             </a>
           </div>

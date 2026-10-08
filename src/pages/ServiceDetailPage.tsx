@@ -1,21 +1,16 @@
-import { Helmet } from "react-helmet-async";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Phone, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import CTABanner from "@/components/CTABanner";
+import HeroImage from "@/components/HeroImage";
+import JsonLd from "@/components/JsonLd";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
+import RelatedServices from "@/components/RelatedServices";
 import Seo from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
-import { getServicePage, servicePages } from "@/data/servicePages";
-
-const SITE_URL = "https://ntpplumbing.com";
+import { getServicePage } from "@/data/servicePages";
+import { getPhoto } from "@/data/photos";
+import { BUSINESS } from "@/lib/business";
+import { faqSchema, serviceSchema } from "@/lib/schema";
 
 export default function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -26,61 +21,21 @@ export default function ServiceDetailPage() {
   }
 
   const path = `/services/${service.slug}`;
-
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: service.navTitle,
-    name: service.navTitle,
-    description: service.seoDescription,
-    url: `${SITE_URL}${path}`,
-    provider: {
-      "@type": "Plumber",
-      name: "NTP Plumbing",
-      telephone: "(619) 550-7371",
-      url: SITE_URL,
-    },
-    areaServed: { "@type": "City", name: "San Diego", containedInPlace: { "@type": "State", name: "California" } },
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: service.faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
-      { "@type": "ListItem", position: 3, name: service.navTitle, item: `${SITE_URL}${path}` },
-    ],
-  };
+  const hero = getPhoto(service.heroPhoto);
 
   return (
     <>
-      <Seo title={service.seoTitle} description={service.seoDescription} path={path} />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
-      </Helmet>
+      <Seo title={service.seoTitle} description={service.seoDescription} path={path} ogImage={hero.url} noindex={!service.published} />
+      <JsonLd
+        data={[
+          serviceSchema({ name: service.navTitle, serviceType: service.navTitle, description: service.seoDescription, path }),
+          faqSchema(service.faqs),
+        ]}
+      />
 
       {/* Hero */}
       <section className="relative flex min-h-[320px] items-center justify-center overflow-hidden">
-        <img
-          src={service.heroImage.src}
-          alt={service.heroImage.alt}
-          width={service.heroImage.width}
-          height={service.heroImage.height}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <HeroImage photo={hero} />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 text-center">
           <h1 className="text-4xl font-bold text-primary-foreground md:text-5xl">{service.title}</h1>
@@ -88,28 +43,7 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
-      {/* Breadcrumb */}
-      <div className="border-b bg-muted/40 px-4 py-3">
-        <Breadcrumb className="mx-auto max-w-4xl">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/services">Services</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{service.navTitle}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </div>
+      <PageBreadcrumb trail={[{ name: "Services", path: "/services" }, { name: service.navTitle, path }]} />
 
       {/* Intro + Includes */}
       <section className="section-padding">
@@ -157,37 +91,17 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
-      {/* Other services */}
-      <section className="section-padding bg-muted">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-8 text-center text-3xl font-bold">Other Services</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {servicePages
-              .filter((s) => s.slug !== service.slug)
-              .map((s) => (
-                <Link
-                  key={s.slug}
-                  to={`/services/${s.slug}`}
-                  className="service-card-hover rounded-xl border bg-card p-6"
-                >
-                  <s.icon className="mb-3 h-8 w-8 text-primary" />
-                  <h3 className="mb-1 text-lg font-semibold">{s.navTitle}</h3>
-                  <p className="text-sm text-muted-foreground">{s.cardDesc}</p>
-                </Link>
-              ))}
-          </div>
-        </div>
-      </section>
+      <RelatedServices slugs={service.related} />
 
       <CTABanner />
 
       {/* Mobile sticky call bar */}
       <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-primary px-4 py-3 shadow-lg md:hidden">
         <a
-          href="tel:+16195507371"
+          href={BUSINESS.phoneHref}
           className="flex w-full items-center justify-center gap-2 rounded-md bg-accent px-4 py-3 text-base font-bold text-accent-foreground"
         >
-          <Phone className="h-5 w-5" /> Call (619) 550-7371
+          <Phone className="h-5 w-5" /> Call {BUSINESS.phoneDisplay}
         </a>
       </div>
     </>

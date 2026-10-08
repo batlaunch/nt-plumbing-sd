@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import { Star } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 
 const reviews = [
   {
@@ -69,31 +69,10 @@ const reviews = [
   },
 ];
 
-const reviewsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Plumber",
-  name: "NTP Plumbing",
-  url: "https://ntpplumbing.com",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: String(reviews.length),
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: reviews.map((r) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: r.name },
-    datePublished: r.dateISO,
-    reviewBody: r.text,
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: "5",
-      bestRating: "5",
-      worstRating: "1",
-    },
-  })),
-};
+// No Review/AggregateRating structured data here: these reviews are copied from
+// Yelp, and Google's review-snippet guidelines disallow marking up reviews
+// sourced from another site (and self-serving LocalBusiness reviews aren't
+// eligible for stars anyway). Linking to the Yelp profile is the safe signal.
 
 export default function ReviewsPage() {
   return (
@@ -103,9 +82,7 @@ export default function ReviewsPage() {
         description="Read 5-star Yelp reviews for NTP Plumbing from customers across El Cajon, La Mesa, Lakeside, Escondido, and Greater San Diego."
         path="/reviews"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(reviewsJsonLd)}</script>
-      </Helmet>
+      <PageBreadcrumb trail={[{ name: "Reviews", path: "/reviews" }]} />
       <section className="section-padding">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">

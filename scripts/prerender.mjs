@@ -40,7 +40,7 @@ const problems = [];
 const warnings = [];
 // Length / uniqueness / JSON-LD-presence rules. Flip to true once every page
 // complies so regressions fail the build.
-const STRICT = false;
+const STRICT = true;
 const soft = (msg) => (STRICT ? problems : warnings).push(msg);
 const seen = { title: new Map(), description: new Map() };
 const decode = (s) =>

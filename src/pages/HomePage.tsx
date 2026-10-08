@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Shield, Clock, Star, Wrench, MapPin } from "lucide-react";
-import { allPhotos } from "@/data/photos";
+import { allPhotos, getPhoto } from "@/data/photos";
 import { servicePages } from "@/data/servicePages";
 import CTABanner from "@/components/CTABanner";
 import Seo from "@/components/Seo";
-import beforeCleaning from "@/assets/before-cleaning.jpeg";
-import afterCleaning from "@/assets/after-cleaning.jpeg";
+import HeroImage from "@/components/HeroImage";
+
+const heroPhoto = getPhoto("copper-water-line-repair");
 
 const cityRegions = [
   {
@@ -58,14 +59,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden md:min-h-[600px]">
-        <img
-          src="/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.webp"
-          alt="NTP Plumbing technician completing a 24/7 emergency plumbing job in Greater San Diego, CA"
-          width={750}
-          height={1000}
-          className="absolute inset-0 h-full w-full object-cover"
-          loading="eager"
-        />
+        <HeroImage photo={heroPhoto} />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
           <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
@@ -145,11 +139,11 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <figure className="overflow-hidden rounded-xl border shadow-sm">
-              <img src={beforeCleaning} alt="Sewer line before cleaning — heavy buildup and debris" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <img src="/images/sewer-line-before-hydro-jetting.webp" alt="Sewer camera view of a drain line before cleaning, coated in heavy buildup and debris" width={800} height={589} className="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async" />
               <figcaption className="bg-background px-4 py-3 text-center text-sm font-semibold uppercase tracking-wide text-muted-foreground">Before</figcaption>
             </figure>
             <figure className="overflow-hidden rounded-xl border shadow-sm">
-              <img src={afterCleaning} alt="Sewer line after cleaning — clear and flowing freely" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <img src="/images/sewer-line-after-hydro-jetting.webp" alt="The same drain line after cleaning, with the pipe walls scoured clean" width={800} height={591} className="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async" />
               <figcaption className="bg-background px-4 py-3 text-center text-sm font-semibold uppercase tracking-wide text-muted-foreground">After</figcaption>
             </figure>
           </div>
@@ -164,8 +158,11 @@ export default function HomePage() {
               key={p.id}
               src={p.thumbnail}
               alt={p.alt}
+              width={300}
+              height={300}
               className="h-40 w-56 shrink-0 rounded-lg object-cover"
               loading="lazy"
+              decoding="async"
             />
           ))}
         </div>

@@ -1,33 +1,31 @@
-import { allPhotos } from "@/data/photos";
-
-const workPhoto1 = allPhotos.find((p) => p.id === "fLKMy8MJF_wGnLIodG377g")!;
-const workPhoto2 = allPhotos.find((p) => p.id === "3GsposTukR3DamGOb5_YAQ")!;
+import { getPhoto } from "@/data/photos";
 import CTABanner from "@/components/CTABanner";
+import HeroImage from "@/components/HeroImage";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import Seo from "@/components/Seo";
+
+const heroPhoto = getPhoto("tiled-shower-valve-installation");
+const workPhoto1 = getPhoto("toilet-vanity-installation-bathroom");
+const workPhoto2 = getPhoto("drain-vent-pipe-repair-in-wall");
 
 export default function AboutPage() {
   return (
     <>
       <Seo
-        title="About NTP Plumbing | 24/7 Plumber in El Cajon, CA"
-        description="Learn about NTP Plumbing — owner-operator Nick T. with 20+ years of experience serving El Cajon and Greater San Diego. 5-star rated, licensed, and available 24/7."
+        title="About NTP Plumbing | Licensed El Cajon Plumber"
+        description="NTP Plumbing is a licensed El Cajon plumbing company (CA Lic. #1040373, C-36) serving East County San Diego since 2018. Meet the team behind the work."
         path="/about"
       />
       {/* Hero */}
       <section className="relative flex min-h-[300px] items-center justify-center overflow-hidden">
-        <img
-          src="/images/gallery/4dR7TDBrMzHypMEX7B962g-o.webp"
-          alt="NTP Plumbing owner-operator on a plumbing job in El Cajon, CA"
-          width={750}
-          height={1000}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <HeroImage photo={heroPhoto} />
         <div className="hero-overlay absolute inset-0" />
         <div className="relative z-10 text-center">
           <h1 className="text-4xl font-bold text-primary-foreground md:text-5xl">About NTP Plumbing</h1>
           <p className="mt-2 text-primary-foreground/70">Your Trusted 24/7 Plumber in El Cajon &amp; Greater San Diego</p>
         </div>
       </section>
+      <PageBreadcrumb trail={[{ name: "About", path: "/about" }]} className="max-w-3xl" />
 
       <section className="section-padding">
         <div className="mx-auto max-w-3xl">
@@ -57,7 +55,7 @@ export default function AboutPage() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <img
-              src={workPhoto1.url}
+              src={workPhoto1.url640}
               alt={workPhoto1.alt}
               width={workPhoto1.width}
               height={workPhoto1.height}
@@ -65,7 +63,7 @@ export default function AboutPage() {
               loading="lazy"
             />
             <img
-              src={workPhoto2.url}
+              src={workPhoto2.url640}
               alt={workPhoto2.alt}
               width={workPhoto2.width}
               height={workPhoto2.height}

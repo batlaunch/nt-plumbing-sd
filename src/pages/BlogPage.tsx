@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CalendarDays, Clock } from "lucide-react";
 import Seo from "@/components/Seo";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 import { blogPosts } from "@/data/blog";
 
 export default function BlogPage() {
@@ -17,6 +18,7 @@ export default function BlogPage() {
           <p className="mt-2 text-primary-foreground/70">Practical guidance from NTP Plumbing, for Greater San Diego homeowners</p>
         </div>
       </section>
+      <PageBreadcrumb trail={[{ name: "Blog", path: "/blog" }]} />
 
       <section className="section-padding">
         <div className="mx-auto max-w-4xl">

@@ -11,7 +11,10 @@ export interface ServicePageData {
   cardDesc: string;
   title: string;
   heroSubtitle: string;
-  heroImage: { src: string; width: number; height: number; alt: string };
+  /** Photo id from data/photos. */
+  heroPhoto: string;
+  /** 2–3 closely related service slugs for internal linking. */
+  related: string[];
   seoTitle: string;
   seoDescription: string;
   intro: string;
@@ -30,13 +33,9 @@ export const servicePages: ServicePageData[] = [
     cardDesc: "Hydro jetting and drain clearing for stubborn clogs and buildups.",
     title: "Drain Cleaning & Hydro Jetting",
     heroSubtitle: "Fast, Thorough Clog Removal Across Greater San Diego",
-    heroImage: {
-      src: "/images/gallery/5nkn7xgWq7pKxh7_ymzcNw-o.webp",
-      width: 750,
-      height: 1000,
-      alt: "NTP Plumbing hydro jetting a clogged drain line in Greater San Diego, CA",
-    },
-    seoTitle: "Drain Cleaning & Hydro Jetting in San Diego, CA | NTP Plumbing",
+    heroPhoto: "sewer-camera-inspection-footage",
+    related: ["sewer-line-repair", "leak-detection", "fixture-installation-repair"],
+    seoTitle: "Drain Cleaning & Hydro Jetting in El Cajon | NTP Plumbing",
     seoDescription: "Professional drain cleaning and hydro jetting in Greater San Diego. Clear stubborn clogs, grease buildup, and tree root intrusions fast. Available 24/7.",
     intro:
       "A slow or backed-up drain is rarely just an inconvenience — left alone, it can turn into a full line blockage or a burst pipe. NTP Plumbing clears drains using professional-grade equipment, and for tougher buildup — grease, scale, or tree roots — we bring in hydro jetting, which uses high-pressure water to scour the inside of the pipe clean rather than just punching a hole through the clog.",
@@ -67,13 +66,9 @@ export const servicePages: ServicePageData[] = [
     cardDesc: "Installation, repair, and replacement of all water heater types.",
     title: "Water Heater Installation & Repair",
     heroSubtitle: "Tank & Tankless Water Heaters, Installed and Repaired Right",
-    heroImage: {
-      src: "/images/gallery/NqNt8yyl-XcxU0kM5Q3aoA-o.webp",
-      width: 750,
-      height: 1000,
-      alt: "NTP Plumbing water heater installation and repair in Greater San Diego, CA",
-    },
-    seoTitle: "Water Heater Installation & Repair in San Diego, CA | NTP Plumbing",
+    heroPhoto: "gas-water-heater-installation",
+    related: ["leak-detection", "fixture-installation-repair", "drain-cleaning-hydro-jetting"],
+    seoTitle: "Water Heater Repair & Replacement in El Cajon | NTP Plumbing",
     seoDescription: "Tank and tankless water heater installation, repair, and replacement in Greater San Diego. No hot water? NTP Plumbing responds 24/7.",
     intro:
       "No hot water is one of the most common calls we get — and one of the most urgent. NTP Plumbing installs and repairs both traditional tank and tankless water heaters, and diagnoses issues like pilot light failures, leaking tanks, and inconsistent temperature before recommending a repair or replacement.",
@@ -106,13 +101,9 @@ export const servicePages: ServicePageData[] = [
     cardDesc: "Advanced camera and line locating technology to find hidden leaks.",
     title: "Leak Detection",
     heroSubtitle: "Find Hidden Leaks Before They Become Bigger Problems",
-    heroImage: {
-      src: "/images/gallery/mdd_JtWbfytG7Ctffbh5UQ-o.webp",
-      width: 750,
-      height: 1000,
-      alt: "NTP Plumbing leak detection equipment used on a job in Greater San Diego, CA",
-    },
-    seoTitle: "Leak Detection in San Diego, CA | NTP Plumbing",
+    heroPhoto: "bathtub-valve-pex-repipe",
+    related: ["water-heater-repair", "sewer-line-repair", "fixture-installation-repair"],
+    seoTitle: "Leak Detection & Slab Leak Repair in El Cajon | NTP Plumbing",
     seoDescription: "Hidden leak behind a wall, under a slab, or in the yard? NTP Plumbing uses non-invasive leak detection to find it fast, without tearing up your property.",
     intro:
       "Not every leak announces itself with a puddle. A rising water bill, a warm spot on the floor, or the sound of running water when nothing's on are all signs of a hidden leak — behind a wall, under a slab, or underground. NTP Plumbing uses leak detection equipment to pinpoint the source before any repair work begins, so we're not guessing where to dig or cut.",
@@ -144,13 +135,9 @@ export const servicePages: ServicePageData[] = [
     cardDesc: "Installation and repair of bathtubs, faucets, and garbage disposals.",
     title: "Fixture Installation & Repair",
     heroSubtitle: "Bathtubs, Faucets, and Garbage Disposals — Installed & Repaired",
-    heroImage: {
-      src: "/images/gallery/de4SMRc925ShmJz4-M7jLg-o.webp",
-      width: 750,
-      height: 1000,
-      alt: "NTP Plumbing bathtub installation in Greater San Diego, CA",
-    },
-    seoTitle: "Bathtub, Faucet & Garbage Disposal Repair in San Diego, CA | NTP Plumbing",
+    heroPhoto: "toilet-and-vanity-installation",
+    related: ["drain-cleaning-hydro-jetting", "water-heater-repair", "leak-detection"],
+    seoTitle: "Faucet, Toilet & Fixture Repair in El Cajon | NTP Plumbing",
     seoDescription: "Bathtub, faucet, and garbage disposal installation and repair in Greater San Diego. Licensed, insured, and available 24/7.",
     intro:
       "From a dripping faucet to a full bathtub replacement, NTP Plumbing handles fixture work of every size. We install and repair bathtubs, faucets, and garbage disposals for all makes and models, and we'll always let you know if a repair is a better call than a replacement.",
@@ -181,14 +168,10 @@ export const servicePages: ServicePageData[] = [
     cardDesc: "Trenchless sewer liner repairs — full liners and sectional liners.",
     title: "Sewer Line Repair & Camera Inspection",
     heroSubtitle: "Trenchless Sewer Repair & Camera Diagnostics",
-    heroImage: {
-      src: "/images/gallery/sRqEsIZfvz9Z3s-AOUXfpQ-o.webp",
-      width: 1000,
-      height: 750,
-      alt: "NTP Plumbing sewer camera inspection equipment used in Greater San Diego, CA",
-    },
-    seoTitle: "Sewer Line Repair & Camera Inspection in San Diego, CA | NTP Plumbing",
-    seoDescription: "Sewer camera inspection, line locating, and trenchless sewer liner repair in Greater San Diego. Diagnose and fix sewer line problems without full excavation.",
+    heroPhoto: "two-way-sewer-cleanout-installation",
+    related: ["drain-cleaning-hydro-jetting", "leak-detection", "backflow-testing"],
+    seoTitle: "Sewer Line Repair & Replacement in El Cajon | NTP Plumbing",
+    seoDescription: "Sewer camera inspection, line locating, and trenchless sewer liner repair in El Cajon and East County. Find and fix sewer problems with less digging.",
     intro:
       "Sewer line problems are hard to diagnose from the surface — that's why we start with a camera. NTP Plumbing runs a camera down the line to see exactly what's wrong and where, then repairs it using trenchless sewer liner technology where possible, which restores the pipe from the inside without digging up your yard or driveway.",
     includes: [
@@ -219,13 +202,9 @@ export const servicePages: ServicePageData[] = [
     cardDesc: "Certified backflow prevention testing and device installation.",
     title: "Backflow Testing",
     heroSubtitle: "Certified Backflow Prevention Testing & Device Installation",
-    heroImage: {
-      src: "/images/gallery/IuIF4tRLC6oBwHO9x4mR5g-o.webp",
-      width: 750,
-      height: 1000,
-      alt: "NTP Plumbing backflow prevention device testing in Greater San Diego, CA",
-    },
-    seoTitle: "Backflow Testing in San Diego, CA | NTP Plumbing",
+    heroPhoto: "pressure-regulator-main-shutoff-installation",
+    related: ["leak-detection", "sewer-line-repair", "water-heater-repair"],
+    seoTitle: "Backflow Testing & Certification in El Cajon | NTP Plumbing",
     seoDescription: "Certified backflow prevention testing and device installation in Greater San Diego. Keep your property compliant and your water supply protected.",
     intro:
       "Backflow prevention devices keep contaminated water from flowing back into the clean water supply — and most water agencies require annual testing to confirm they're working. NTP Plumbing tests, installs, and repairs backflow prevention devices for residential and commercial properties across Greater San Diego.",

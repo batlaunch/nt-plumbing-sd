@@ -1,105 +1,16 @@
-import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Clock, Star, Shield, MapPin, Wrench } from "lucide-react";
 import Seo from "@/components/Seo";
+import MapEmbed from "@/components/MapEmbed";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
 
 const REGION_ANCHORS: Record<string, string> = {
   "San Diego Core": "san-diego-core",
   "North County San Diego": "north-county",
   "South Bay & East County": "south-bay-east-county",
 };
-
-const GOOGLE_MAPS_API_KEY = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined) ?? "";
-
-const SD_CENTER = { lat: 32.7157, lng: -117.1611 };
-const BORDER_LAT = 32.5343;
-const RADIUS_MILES = 45;
-
-function buildServiceAreaPolygon() {
-  const points: { lat: number; lng: number }[] = [];
-  const latPerMile = 1 / 69;
-  const lngPerMile = 1 / (Math.cos((SD_CENTER.lat * Math.PI) / 180) * 69);
-  for (let i = 0; i <= 128; i++) {
-    const angle = (i / 128) * 2 * Math.PI;
-    const lat = SD_CENTER.lat + Math.cos(angle) * RADIUS_MILES * latPerMile;
-    const lng = SD_CENTER.lng + Math.sin(angle) * RADIUS_MILES * lngPerMile;
-    points.push({ lat: Math.max(lat, BORDER_LAT), lng });
-  }
-  return points;
-}
-
-let mapsLoaderPromise: Promise<any> | null = null;
-function loadGoogleMaps(apiKey: string): Promise<any> {
-  if (typeof window === "undefined") return Promise.reject(new Error("SSR"));
-  if ((window as any).google?.maps) return Promise.resolve((window as any).google);
-  if (mapsLoaderPromise) return mapsLoaderPromise;
-  mapsLoaderPromise = new Promise((resolve, reject) => {
-    const s = document.createElement("script");
-    s.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}`;
-    s.async = true;
-    s.defer = true;
-    s.onload = () => resolve((window as any).google);
-    s.onerror = () => reject(new Error("Failed to load Google Maps"));
-    document.head.appendChild(s);
-  });
-  return mapsLoaderPromise;
-}
-
-function ServiceAreaMap() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!ref.current || !GOOGLE_MAPS_API_KEY) return;
-    let cancelled = false;
-    loadGoogleMaps(GOOGLE_MAPS_API_KEY)
-      .then((g) => {
-        if (cancelled || !ref.current) return;
-        const map = new g.maps.Map(ref.current, {
-          center: SD_CENTER,
-          zoom: 8,
-          streetViewControl: false,
-          zoomControl: true,
-          mapTypeControl: false,
-          fullscreenControl: false,
-        });
-        new g.maps.Polygon({
-          paths: buildServiceAreaPolygon(),
-          strokeColor: "#e8a020",
-          strokeOpacity: 1,
-          strokeWeight: 2,
-          fillColor: "#1a3a5c",
-          fillOpacity: 0.2,
-          clickable: false,
-          map,
-        });
-        new g.maps.Marker({ position: SD_CENTER, map, title: "San Diego, CA" });
-      })
-      .catch((e) => console.error(e));
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  if (!GOOGLE_MAPS_API_KEY) {
-    return (
-      <iframe
-        title="NTP Plumbing Service Area Map"
-        src="https://www.google.com/maps?q=San+Diego,+CA&z=8&output=embed"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        allowFullScreen
-      />
-    );
-  }
-
-  return <div ref={ref} style={{ width: "100%", height: "100%" }} />;
-}
-
 
 const regions = [
   {
@@ -202,36 +113,6 @@ const whyCards = [
   { icon: Phone, title: "Fast Response Times", text: "We know you can't wait. Our dispatchers prioritize your call and get a technician to you as fast as possible." },
 ];
 
-const citiesForSchema = [
-  "San Diego","Chula Vista","El Cajon","La Mesa","National City","Santee","Lemon Grove","Imperial Beach","La Jolla","Oceanside","Carlsbad","Escondido","Vista","San Marcos","Encinitas","Poway","Del Mar","Solana Beach","Spring Valley","Lakeside","Alpine","Fallbrook","Ramona",
-];
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "PlumbingBusiness",
-  name: "NTP Plumbing",
-  url: "https://ntpplumbing.com",
-  telephone: "(619) 550-7371",
-  description:
-    "NTP Plumbing provides 24/7 professional plumbing services including drain cleaning, water heaters, hydro jetting, and leak detection throughout Greater San Diego, CA. 5-star rated on Yelp.",
-  priceRange: "$$",
-  openingHours: "Mo-Su 00:00-24:00",
-  hasMap: "https://www.google.com/maps?q=NTP+Plumbing+San+Diego",
-  areaServed: citiesForSchema.map((name) => ({
-    "@type": "City",
-    name,
-    containedInPlace: { "@type": "State", name: "California" },
-  })),
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "9",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  sameAs: ["https://www.yelp.com/biz/ntp-el-cajon-4?osq=NTP+Plumbers&q=ntp+plumbers"],
-};
-
 export default function ServiceAreaPage() {
   const location = useLocation();
 
@@ -252,9 +133,7 @@ export default function ServiceAreaPage() {
         description="NTP Plumbing serves all of Greater San Diego, CA. View our full list of cities, towns, and zip codes served. Available 24/7 for emergency plumbing."
         path="/service-area"
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
+      <PageBreadcrumb trail={[{ name: "Service Area", path: "/service-area" }]} />
 
       {/* Hero */}
       <section className="bg-[#1a3a5c] px-4 py-16 text-white md:py-24">
@@ -285,6 +164,12 @@ export default function ServiceAreaPage() {
           </p>
         </div>
       </section>
+      <section className="bg-white px-4 pb-16">
+        <div className="mx-auto max-w-4xl">
+          <MapEmbed />
+        </div>
+      </section>
+
       {/* Regions */}
       <section className="bg-[#f4f6f8] px-4 py-16">
         <div className="mx-auto max-w-6xl space-y-14">

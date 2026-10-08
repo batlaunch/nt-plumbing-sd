@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Clock, CreditCard } from "lucide-react";
 import Seo from "@/components/Seo";
+import MapEmbed from "@/components/MapEmbed";
+import PageBreadcrumb from "@/components/PageBreadcrumb";
+import { BUSINESS } from "@/lib/business";
 
 export default function ContactPage() {
   return (
+    <>
+    <PageBreadcrumb trail={[{ name: "Contact", path: "/contact" }]} className="max-w-3xl" />
     <section className="section-padding">
       <Seo
         title="Contact NTP Plumbing | 24/7 Plumber in San Diego, CA"
@@ -35,7 +40,9 @@ export default function ContactPage() {
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div>
-                <p className="font-medium">Service Area</p>
+                <p className="font-medium">Office</p>
+                <p className="text-sm text-muted-foreground">{BUSINESS.addressLine}</p>
+                <p className="mt-2 font-medium">Service Area</p>
                 <p className="text-sm text-muted-foreground">Serving El Cajon, La Mesa, Spring Valley, National City, and San Diego Counties</p>
               </div>
             </div>
@@ -56,7 +63,11 @@ export default function ContactPage() {
           </div>
 
         </div>
+
+        <h2 className="mb-4 mt-10 text-xl font-semibold">Find Us</h2>
+        <MapEmbed />
       </div>
     </section>
+    </>
   );
 }

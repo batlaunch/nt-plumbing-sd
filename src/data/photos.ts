@@ -1,51 +1,81 @@
-// Photos of previous plumbing work by NTP. Images are self-hosted locally
-// (public/images/gallery) rather than hotlinked from Yelp's CDN, to avoid
-// depending on a third party for availability/perf and to allow real width/height.
+// Photos of NTP Plumbing's own jobs, self-hosted in public/images/gallery and
+// generated from the original uploads. File names and alt text describe what
+// each photo actually shows. Every photo has three sizes:
+//   <slug>.webp (<=1200px), <slug>-640w.webp, <slug>-thumb.webp (300x300).
 
-export const allPhotos = [
-  { id: "xotUmIw4oPCgxALWxykLaQ", url: "/images/gallery/xotUmIw4oPCgxALWxykLaQ-l.webp", thumbnail: "/images/gallery/xotUmIw4oPCgxALWxykLaQ-258s.webp", alt: "Bathtub installation & repair — NTP Plumbing job in El Cajon, CA", width: 300, height: 400 },
-  { id: "4dR7TDBrMzHypMEX7B962g", url: "/images/gallery/4dR7TDBrMzHypMEX7B962g-l.webp", thumbnail: "/images/gallery/4dR7TDBrMzHypMEX7B962g-258s.webp", alt: "Drain installation & repair — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "fLKMy8MJF_wGnLIodG377g", url: "/images/gallery/fLKMy8MJF_wGnLIodG377g-l.webp", thumbnail: "/images/gallery/fLKMy8MJF_wGnLIodG377g-258s.webp", alt: "Faucet installation & repair — NTP Plumbing job in Santee, CA", width: 300, height: 400 },
-  { id: "3GsposTukR3DamGOb5_YAQ", url: "/images/gallery/3GsposTukR3DamGOb5_YAQ-l.webp", thumbnail: "/images/gallery/3GsposTukR3DamGOb5_YAQ-258s.webp", alt: "Garbage disposal installation & repair — NTP Plumbing job in Spring Valley, CA", width: 300, height: 400 },
-  { id: "Of6S0dEOrBOW3FAmeCv-Jg", url: "/images/gallery/Of6S0dEOrBOW3FAmeCv-Jg-l.webp", thumbnail: "/images/gallery/Of6S0dEOrBOW3FAmeCv-Jg-258s.webp", alt: "Water heater installation & repair — NTP Plumbing job in San Diego County, CA", width: 300, height: 400 },
-  { id: "5nkn7xgWq7pKxh7_ymzcNw", url: "/images/gallery/5nkn7xgWq7pKxh7_ymzcNw-l.webp", thumbnail: "/images/gallery/5nkn7xgWq7pKxh7_ymzcNw-258s.webp", alt: "Hydro jetting — NTP Plumbing job in El Cajon, CA", width: 300, height: 400 },
-  { id: "IuIF4tRLC6oBwHO9x4mR5g", url: "/images/gallery/IuIF4tRLC6oBwHO9x4mR5g-l.webp", thumbnail: "/images/gallery/IuIF4tRLC6oBwHO9x4mR5g-258s.webp", alt: "Backflow testing — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "sRqEsIZfvz9Z3s-AOUXfpQ", url: "/images/gallery/sRqEsIZfvz9Z3s-AOUXfpQ-l.webp", thumbnail: "/images/gallery/sRqEsIZfvz9Z3s-AOUXfpQ-258s.webp", alt: "Sewer camera inspection & line locating — NTP Plumbing job in Santee, CA", width: 533, height: 400 },
-  { id: "kCBJoGV5L1u_zOb2Ctzlig", url: "/images/gallery/kCBJoGV5L1u_zOb2Ctzlig-l.webp", thumbnail: "/images/gallery/kCBJoGV5L1u_zOb2Ctzlig-258s.webp", alt: "Trenchless sewer liner installation — NTP Plumbing job in Spring Valley, CA", width: 533, height: 400 },
-  { id: "mdd_JtWbfytG7Ctffbh5UQ", url: "/images/gallery/mdd_JtWbfytG7Ctffbh5UQ-l.webp", thumbnail: "/images/gallery/mdd_JtWbfytG7Ctffbh5UQ-258s.webp", alt: "Leak detection — NTP Plumbing job in San Diego County, CA", width: 300, height: 400 },
-  { id: "Gimg68OzE5II5wztSOltsg", url: "/images/gallery/Gimg68OzE5II5wztSOltsg-l.webp", thumbnail: "/images/gallery/Gimg68OzE5II5wztSOltsg-258s.webp", alt: "Sewer liner repair — NTP Plumbing job in El Cajon, CA", width: 533, height: 400 },
-  { id: "uR7RCETAh3jEct_4h_G17Q", url: "/images/gallery/uR7RCETAh3jEct_4h_G17Q-l.webp", thumbnail: "/images/gallery/uR7RCETAh3jEct_4h_G17Q-258s.webp", alt: "Drain cleaning — NTP Plumbing job in La Mesa, CA", width: 533, height: 400 },
-  { id: "uIvh4ZttheQTpSgf9eXA-w", url: "/images/gallery/uIvh4ZttheQTpSgf9eXA-w-l.webp", thumbnail: "/images/gallery/uIvh4ZttheQTpSgf9eXA-w-258s.webp", alt: "General plumbing service & repair — NTP Plumbing job in Santee, CA", width: 300, height: 400 },
-  { id: "de4SMRc925ShmJz4-M7jLg", url: "/images/gallery/de4SMRc925ShmJz4-M7jLg-l.webp", thumbnail: "/images/gallery/de4SMRc925ShmJz4-M7jLg-258s.webp", alt: "Bathtub installation & repair — NTP Plumbing job in Spring Valley, CA", width: 300, height: 400 },
-  { id: "ZE6UAuTbCLN5TruQ6FOaFg", url: "/images/gallery/ZE6UAuTbCLN5TruQ6FOaFg-l.webp", thumbnail: "/images/gallery/ZE6UAuTbCLN5TruQ6FOaFg-258s.webp", alt: "Drain installation & repair — NTP Plumbing job in San Diego County, CA", width: 300, height: 400 },
-  { id: "kRjgKLNgV-s4yCYvbTnRZw", url: "/images/gallery/kRjgKLNgV-s4yCYvbTnRZw-l.webp", thumbnail: "/images/gallery/kRjgKLNgV-s4yCYvbTnRZw-258s.webp", alt: "Faucet installation & repair — NTP Plumbing job in El Cajon, CA", width: 533, height: 400 },
-  { id: "5icw5OSt-np3lFPQrUixug", url: "/images/gallery/5icw5OSt-np3lFPQrUixug-l.webp", thumbnail: "/images/gallery/5icw5OSt-np3lFPQrUixug-258s.webp", alt: "Garbage disposal installation & repair — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "NqNt8yyl-XcxU0kM5Q3aoA", url: "/images/gallery/NqNt8yyl-XcxU0kM5Q3aoA-l.webp", thumbnail: "/images/gallery/NqNt8yyl-XcxU0kM5Q3aoA-258s.webp", alt: "Water heater installation & repair — NTP Plumbing job in Santee, CA", width: 300, height: 400 },
-  { id: "514gwqVa0rP0E7Fc-np7nQ", url: "/images/gallery/514gwqVa0rP0E7Fc-np7nQ-l.webp", thumbnail: "/images/gallery/514gwqVa0rP0E7Fc-np7nQ-258s.webp", alt: "Hydro jetting — NTP Plumbing job in Spring Valley, CA", width: 300, height: 400 },
-  { id: "QCKhVzbC4Mscg0RPmB9aFQ", url: "/images/gallery/QCKhVzbC4Mscg0RPmB9aFQ-l.webp", thumbnail: "/images/gallery/QCKhVzbC4Mscg0RPmB9aFQ-258s.webp", alt: "Backflow testing — NTP Plumbing job in San Diego County, CA", width: 300, height: 400 },
-  { id: "A9FXKWs0g4BJJvUj0NMnOg", url: "/images/gallery/A9FXKWs0g4BJJvUj0NMnOg-l.webp", thumbnail: "/images/gallery/A9FXKWs0g4BJJvUj0NMnOg-258s.webp", alt: "Sewer camera inspection & line locating — NTP Plumbing job in El Cajon, CA", width: 300, height: 400 },
-  { id: "tLj5ToGhGiauAtl759Tc-A", url: "/images/gallery/tLj5ToGhGiauAtl759Tc-A-l.webp", thumbnail: "/images/gallery/tLj5ToGhGiauAtl759Tc-A-258s.webp", alt: "Trenchless sewer liner installation — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "PLhEquEVLCgwJY1nyS0_JQ", url: "/images/gallery/PLhEquEVLCgwJY1nyS0_JQ-l.webp", thumbnail: "/images/gallery/PLhEquEVLCgwJY1nyS0_JQ-258s.webp", alt: "Leak detection — NTP Plumbing job in Santee, CA", width: 300, height: 400 },
-  { id: "natv89qiQnCgWfqkLJJqZw", url: "/images/gallery/natv89qiQnCgWfqkLJJqZw-l.webp", thumbnail: "/images/gallery/natv89qiQnCgWfqkLJJqZw-258s.webp", alt: "Sewer liner repair — NTP Plumbing job in Spring Valley, CA", width: 300, height: 400 },
-  { id: "nOhOdRubb7xThqOVv7iErg", url: "/images/gallery/nOhOdRubb7xThqOVv7iErg-l.webp", thumbnail: "/images/gallery/nOhOdRubb7xThqOVv7iErg-258s.webp", alt: "Drain cleaning — NTP Plumbing job in San Diego County, CA", width: 300, height: 400 },
-  { id: "hjav3xpdSY1aDdlEW9zA_Q", url: "/images/gallery/hjav3xpdSY1aDdlEW9zA_Q-l.webp", thumbnail: "/images/gallery/hjav3xpdSY1aDdlEW9zA_Q-258s.webp", alt: "General plumbing service & repair — NTP Plumbing job in El Cajon, CA", width: 300, height: 400 },
-  { id: "c939EtdKfwAjNgsja_PFtw", url: "/images/gallery/c939EtdKfwAjNgsja_PFtw-l.webp", thumbnail: "/images/gallery/c939EtdKfwAjNgsja_PFtw-258s.webp", alt: "Bathtub installation & repair — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "imNj-qBKBpnFYrf9EuOlQA", url: "/images/gallery/imNj-qBKBpnFYrf9EuOlQA-l.webp", thumbnail: "/images/gallery/imNj-qBKBpnFYrf9EuOlQA-258s.webp", alt: "Drain installation & repair — NTP Plumbing job in Santee, CA", width: 300, height: 400 },
-  { id: "EIYaulp2iUlTf-ZjwWOLdQ", url: "/images/gallery/EIYaulp2iUlTf-ZjwWOLdQ-l.webp", thumbnail: "/images/gallery/EIYaulp2iUlTf-ZjwWOLdQ-258s.webp", alt: "Faucet installation & repair — NTP Plumbing job in Spring Valley, CA", width: 533, height: 400 },
-  { id: "aWVkxexXW57x0b-pdaVuNg", url: "/images/gallery/aWVkxexXW57x0b-pdaVuNg-l.webp", thumbnail: "/images/gallery/aWVkxexXW57x0b-pdaVuNg-258s.webp", alt: "Garbage disposal installation & repair — NTP Plumbing job in San Diego County, CA", width: 300, height: 400 },
-  { id: "JT7v2AtfcuGlnsEXB_Rn7A", url: "/images/gallery/JT7v2AtfcuGlnsEXB_Rn7A-l.webp", thumbnail: "/images/gallery/JT7v2AtfcuGlnsEXB_Rn7A-258s.webp", alt: "Water heater installation & repair — NTP Plumbing job in El Cajon, CA", width: 300, height: 400 },
-  { id: "i_1oI3RgSduKLvaeiPcwTQ", url: "/images/gallery/i_1oI3RgSduKLvaeiPcwTQ-l.webp", thumbnail: "/images/gallery/i_1oI3RgSduKLvaeiPcwTQ-258s.webp", alt: "Hydro jetting — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "4jGW4yt3a00jN11u6r0Gag", url: "/images/gallery/4jGW4yt3a00jN11u6r0Gag-l.webp", thumbnail: "/images/gallery/4jGW4yt3a00jN11u6r0Gag-258s.webp", alt: "Backflow testing — NTP Plumbing job in Santee, CA", width: 533, height: 400 },
-  { id: "RMlsqP7ebWKZIKiqgFLqhQ", url: "/images/gallery/RMlsqP7ebWKZIKiqgFLqhQ-l.webp", thumbnail: "/images/gallery/RMlsqP7ebWKZIKiqgFLqhQ-258s.webp", alt: "Sewer camera inspection & line locating — NTP Plumbing job in Spring Valley, CA", width: 533, height: 400 },
-  { id: "UpNpsPZQ6N12U7c_bOo6aQ", url: "/images/gallery/UpNpsPZQ6N12U7c_bOo6aQ-l.webp", thumbnail: "/images/gallery/UpNpsPZQ6N12U7c_bOo6aQ-258s.webp", alt: "Trenchless sewer liner installation — NTP Plumbing job in San Diego County, CA", width: 533, height: 400 },
-  { id: "sUWowX9NifW1Sntwtip0-w", url: "/images/gallery/sUWowX9NifW1Sntwtip0-w-l.webp", thumbnail: "/images/gallery/sUWowX9NifW1Sntwtip0-w-258s.webp", alt: "Leak detection — NTP Plumbing job in El Cajon, CA", width: 300, height: 400 },
-  { id: "DdMo8fVsCjoLSih2j3lBZw", url: "/images/gallery/DdMo8fVsCjoLSih2j3lBZw-l.webp", thumbnail: "/images/gallery/DdMo8fVsCjoLSih2j3lBZw-258s.webp", alt: "Sewer liner repair — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "R-dp6I0P0D6VeqTjf9vilw", url: "/images/gallery/R-dp6I0P0D6VeqTjf9vilw-l.webp", thumbnail: "/images/gallery/R-dp6I0P0D6VeqTjf9vilw-258s.webp", alt: "Drain cleaning — NTP Plumbing job in Santee, CA", width: 300, height: 400 },
-  { id: "zuXkpDm-_bWvY34MKVqEpQ", url: "/images/gallery/zuXkpDm-_bWvY34MKVqEpQ-l.webp", thumbnail: "/images/gallery/zuXkpDm-_bWvY34MKVqEpQ-258s.webp", alt: "General plumbing service & repair — NTP Plumbing job in Spring Valley, CA", width: 300, height: 400 },
-  { id: "ueo-1ygaCS8Oq9hhI-M6OQ", url: "/images/gallery/ueo-1ygaCS8Oq9hhI-M6OQ-l.webp", thumbnail: "/images/gallery/ueo-1ygaCS8Oq9hhI-M6OQ-258s.webp", alt: "Bathtub installation & repair — NTP Plumbing job in San Diego County, CA", width: 600, height: 277 },
-  { id: "53bZd82Xmalw825bRrgqgA", url: "/images/gallery/53bZd82Xmalw825bRrgqgA-l.webp", thumbnail: "/images/gallery/53bZd82Xmalw825bRrgqgA-258s.webp", alt: "Drain installation & repair — NTP Plumbing job in El Cajon, CA", width: 300, height: 400 },
-  { id: "G773VSjRZ-n6EupZlOPb9w", url: "/images/gallery/G773VSjRZ-n6EupZlOPb9w-l.webp", thumbnail: "/images/gallery/G773VSjRZ-n6EupZlOPb9w-258s.webp", alt: "Faucet installation & repair — NTP Plumbing job in La Mesa, CA", width: 300, height: 400 },
-  { id: "p5qBInaXtzvmWleCsDeNNw", url: "/images/gallery/p5qBInaXtzvmWleCsDeNNw-l.webp", thumbnail: "/images/gallery/p5qBInaXtzvmWleCsDeNNw-258s.webp", alt: "Garbage disposal installation & repair — NTP Plumbing job in Santee, CA", width: 300, height: 400 },
+export interface Photo {
+  id: string;
+  category: string;
+  alt: string;
+  /** Intrinsic size of the full-size image. */
+  width: number;
+  height: number;
+  url: string;
+  url640: string;
+  thumbnail: string;
+}
+
+const photo = (id: string, category: string, alt: string, width: number, height: number): Photo => ({
+  id,
+  category,
+  alt,
+  width,
+  height,
+  url: `/images/gallery/${id}.webp`,
+  url640: `/images/gallery/${id}-640w.webp`,
+  thumbnail: `/images/gallery/${id}-thumb.webp`,
+});
+
+export const allPhotos: Photo[] = [
+  photo("copper-water-line-repair", "Water Lines & Repiping", "New copper water supply line and hose bib installed along a home's exterior wall", 750, 1000),
+  photo("gas-water-heater-installation", "Water Heaters", "Newly installed gas tank water heater with flexible gas connector and copper water lines", 744, 992),
+  photo("water-heater-replacement-closet", "Water Heaters", "Replacement gas water heater installed in an exterior utility closet", 744, 992),
+  photo("gas-water-heater-replacement", "Water Heaters", "Gas water heater replacement with new copper supply lines and seismic strapping", 744, 992),
+  photo("water-heater-installation-laundry-room", "Water Heaters", "Tank water heater installed on a raised stand in a laundry room", 750, 1000),
+  photo("sewer-camera-inspection-footage", "Sewer & Drain Lines", "Sewer camera inspection footage looking down the inside of a sewer pipe", 1000, 462),
+  photo("two-way-sewer-cleanout-installation", "Sewer & Drain Lines", "New ABS sewer line with a two-way cleanout installed beside a house", 1000, 750),
+  photo("sewer-line-cleanout-installation", "Sewer & Drain Lines", "New ABS sewer line and cleanout riser laid in an open trench", 750, 1000),
+  photo("new-sewer-line-wye-fitting", "Sewer & Drain Lines", "Replacement sewer line with a wye fitting bedded in a dug trench", 750, 1000),
+  photo("cast-iron-to-abs-sewer-transition", "Sewer & Drain Lines", "Excavated sewer line where old pipe is being transitioned to new ABS fittings", 1000, 750),
+  photo("abs-sewer-line-replacement", "Sewer & Drain Lines", "Black ABS sewer pipe being installed in a trench along a fence line", 750, 1000),
+  photo("sewer-line-replacement-trench-cleanout", "Sewer & Drain Lines", "Sewer line replacement trench with a new cleanout next to a brick wall", 750, 1000),
+  photo("sewer-line-replacement-trench", "Sewer & Drain Lines", "Open trench with new sewer pipe running alongside a chain-link fence", 750, 1000),
+  photo("sewer-line-trench-excavation", "Sewer & Drain Lines", "Long trench excavated across a yard for sewer line replacement", 750, 1000),
+  photo("sewer-line-trench-narrow", "Sewer & Drain Lines", "Narrow excavated trench exposing a sewer line for replacement", 750, 1000),
+  photo("sewer-cleanout-trench", "Sewer & Drain Lines", "Sewer cleanout riser installed in a trench on a sloped lot", 750, 1000),
+  photo("sewer-line-trench-hillside", "Sewer & Drain Lines", "Sewer line trench dug on a rocky hillside property", 1000, 750),
+  photo("sewer-trench-rocky-soil", "Sewer & Drain Lines", "Sewer line trench cut through rocky East County soil", 750, 1000),
+  photo("sewer-lateral-repair-sidewalk", "Sewer & Drain Lines", "Sewer lateral excavation through a sidewalk with safety cones in place", 750, 1000),
+  photo("broken-sewer-pipe-exposed", "Sewer & Drain Lines", "Excavated section of old sewer pipe showing a broken, deteriorated joint", 750, 1000),
+  photo("broken-sewer-pipe-excavation", "Sewer & Drain Lines", "Close-up of a damaged sewer pipe uncovered during excavation", 750, 1000),
+  photo("drain-line-repair-under-foundation", "Sewer & Drain Lines", "Drain line fittings exposed under a home's foundation during repair", 1000, 750),
+  photo("drain-line-excavation-under-house", "Sewer & Drain Lines", "Excavation beneath a house exposing drain line connections", 1000, 750),
+  photo("sewage-ejector-pump-installation", "Sewer & Drain Lines", "Sewage ejector pump installed with new ABS discharge piping", 750, 1000),
+  photo("yard-backfilled-after-sewer-repair", "Sewer & Drain Lines", "Backyard graded and backfilled after a sewer line repair", 750, 1000),
+  photo("yard-restored-after-sewer-replacement", "Sewer & Drain Lines", "Yard restored after sewer replacement, with the new cleanout at grade", 750, 1000),
+  photo("sewer-trench-backyard", "Sewer & Drain Lines", "Sewer line trench running along a backyard fence near large boulders", 750, 1000),
+  photo("water-line-replacement-trench", "Water Lines & Repiping", "New blue water supply line laid in an excavated trench", 1000, 750),
+  photo("pex-repipe-inside-wall", "Water Lines & Repiping", "New PEX water supply lines routed inside an opened wall", 750, 1000),
+  photo("bathtub-valve-pex-repipe", "Water Lines & Repiping", "Opened wall behind a bathtub showing new PEX supply lines to the tub valve", 1000, 750),
+  photo("pressure-regulator-main-shutoff-installation", "Water Lines & Repiping", "Copper main water line with a new pressure regulator and shutoff valves", 750, 1000),
+  photo("drain-vent-pipe-repair-in-wall", "Drains & Fixtures", "Opened stucco wall exposing a repaired drain and vent pipe", 750, 1000),
+  photo("cast-iron-drain-stack-repair", "Drains & Fixtures", "Drain stack in an opened wall repaired with new pipe and no-hub couplings", 750, 1000),
+  photo("shower-valve-replacement", "Drains & Fixtures", "New shower valve trim and handheld shower head on a fiberglass surround", 750, 1000),
+  photo("shower-valve-handheld-installation", "Drains & Fixtures", "Shower valve and handheld shower installed in a new white surround", 750, 1000),
+  photo("tiled-shower-valve-installation", "Drains & Fixtures", "Tiled shower with a newly installed shower valve and head", 750, 1000),
+  photo("shower-surround-installation", "Drains & Fixtures", "New fiberglass shower surround installed with built-in shelves", 750, 1000),
+  photo("shower-pan-installation", "Drains & Fixtures", "New shower pan with center drain installed", 750, 1000),
+  photo("bathtub-shower-installation", "Drains & Fixtures", "Finished bathroom with a new bathtub, shower valve, and tiled surround", 750, 1000),
+  photo("bathtub-replacement", "Drains & Fixtures", "New bathtub set in place during a bathroom remodel", 1000, 750),
+  photo("bathtub-installation-remodel", "Drains & Fixtures", "Replacement bathtub installed with the wall opened for valve work", 1000, 750),
+  photo("toilet-and-vanity-installation", "Drains & Fixtures", "Bathroom with a newly installed toilet, vanity sink, and faucet", 750, 1000),
+  photo("toilet-vanity-installation-bathroom", "Drains & Fixtures", "Small bathroom with a new toilet and vanity installed", 750, 1000),
 ];
 
-export const heroPhoto = "/images/gallery/xotUmIw4oPCgxALWxykLaQ-o.jpg";
+export function getPhoto(id: string): Photo {
+  const p = allPhotos.find((x) => x.id === id);
+  if (!p) throw new Error(`Unknown photo: ${id}`);
+  return p;
+}
+
+export const OG_IMAGE = "/images/gallery/ntp-plumbing-gas-water-heater-installation.jpg";

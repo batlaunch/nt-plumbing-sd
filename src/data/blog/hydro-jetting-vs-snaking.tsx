@@ -12,7 +12,7 @@ export const meta: BlogPost["meta"] = {
   readTime: "3 min read",
   category: "Drain Cleaning",
   relatedServiceSlug: "drain-cleaning-hydro-jetting",
-  seoTitle: "Hydro Jetting vs. Snaking: What's the Difference? | NTP Plumbing",
+  seoTitle: "Hydro Jetting vs. Snaking a Drain: What's the Difference?",
   seoDescription: "A drain snake and hydro jetting solve different problems. Learn how each works and how to tell which one your clogged drain actually needs.",
 };
 
