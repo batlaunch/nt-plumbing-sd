@@ -74,7 +74,7 @@ function check(route, page) {
 // --- Internal links ---------------------------------------------------------
 // Every internal href must resolve to a route, and published pages must never
 // link to drafts (published: false).
-const LINKS_STRICT = false; // flip once forward links to upcoming pages resolve
+const LINKS_STRICT = true;
 const routes = getSiteRoutes();
 const routeByPath = new Map(routes.map((r) => [r.path, r]));
 const STATIC_FILES = /\.(xml|txt|png|jpe?g|webp|svg|ico|css|js)$/;
