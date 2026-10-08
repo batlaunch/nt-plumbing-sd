@@ -8,6 +8,7 @@ import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import AppRoutes from "@/AppRoutes";
 
 export { getSiteRoutes, NOT_FOUND_PATH } from "@/routes";
+export { buildLlmsTxt } from "@/lib/llmsTxt";
 
 export function render(url: string) {
   const helmetContext: { helmet?: HelmetServerState } = {};
