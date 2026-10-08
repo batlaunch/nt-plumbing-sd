@@ -101,11 +101,3 @@ export default function RichText({ source }: { source: string }) {
   );
 }
 
-/** Plain-text word count of a RichText source (for reporting). */
-export function wordCount(source: string): number {
-  return source
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/[#*\-]/g, " ")
-    .split(/\s+/)
-    .filter(Boolean).length;
-}
